@@ -1,0 +1,68 @@
+<form    #LoginForm="ngForm"  (ngSubmit)="whenSubmit(LoginForm)">
+    <h1>Login</h1>
+    <!-- Email input -->
+    <div class="form-outline mb-4">
+        
+      <input 
+      type="email" 
+      id="form2Example1"
+      class="form-control" 
+      placeholder="Email address"
+      #email="ngModel" ngModel name="email" 
+      required
+      pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
+
+        />
+        <div class="text-danger"  *ngIf="email.touched && email.invalid">
+                <span   *ngIf="email?.errors?.['required']">This Field is required</span>
+                <span  *ngIf="email?.errors?.['pattern']">This Email is invalid</span>
+        </div>
+
+        
+      
+    </div>
+  
+    <!-- Password input -->
+    <div class="form-outline mb-4">
+      <input type="password" 
+      id="form2Example2"
+       class="form-control"
+        placeholder="Password" 
+        #password ='ngModel' ngModel name="password"
+        required
+        />
+        <div class="text-danger"  *ngIf="password.touched && password.invalid">
+               <span *ngIf="password?.errors?.['required']">This Field is required</span>
+          
+        </div>
+    </div>
+  
+   
+   
+  
+    <!-- Submit button -->
+    <button type="submit" class="btn btn-primary btn-block mb-4"  [disabled] = 'LoginForm.invalid' >Sign in</button>
+  
+    <!-- Register buttons -->
+    <div class="text-center">
+      <p>Not a member? <a href="register">Register</a></p>
+      <p>or sign up with:</p>
+      <button type="button" class="btn btn-secondary btn-floating mx-1">
+        <i class="fab fa-facebook-f"></i>
+      </button>
+  
+      <button type="button" class="btn btn-secondary btn-floating mx-1">
+        <i class="fab fa-google"></i>
+      </button>
+  
+      <button type="button" class="btn btn-secondary btn-floating mx-1">
+        <i class="fab fa-twitter"></i>
+      </button>
+  
+      <button type="button" class="btn btn-secondary btn-floating mx-1"  >
+        <i class="fab fa-github"></i>
+      </button>
+    </div>
+  </form>
+ 
+
