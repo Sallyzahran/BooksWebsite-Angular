@@ -1,0 +1,49 @@
+<div class=" w-50 mx-auto ">
+    <div class="">
+  <h2>{{message}}  </h2>  
+        <h1 class="text-primary text-center">Add New Book </h1>
+    </div>
+    <form class="border p-4" [formGroup]="AddBookForm" (ngSubmit)="addBook()" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Title</label>
+
+            <input type="name" class="form-control" id="exampleInputname1" aria-describedby="nameHelp" placeholder="Enter name"
+            formControlName="title"
+            name="title"
+            [ngClass]=" {'border border-danger ' : AddBookForm.controls['title'].touched && AddBookForm.controls['title'].invalid}"
+            >
+            <div
+            *ngIf="AddBookForm.controls['title'].touched
+            && AddBookForm.controls['title'].invalid">
+
+              <small id="nameHelp" class="form-text text-danger "
+               *ngIf="
+
+               AddBookForm.controls['title'].errors?.['required']">
+                    Title is required
+              </small>
+
+            </div>
+           
+
+          </div>
+          <label class="my-3" for="category ">Category</label>
+          <select class="form-select" aria-label="Default select example" name="categoryId" formControlName="categoryId"
+          >
+            <option *ngFor="let category of categories" [value]="category._id">{{category.name}}</option>
+          </select>
+
+          <label class="my-3" for="author ">Author</label>
+          <select class="form-select" aria-label="Default select example" name="authorId" formControlName="authorId">
+            <option *ngFor="let author of authors" [value]="author._id">{{author.firstName}}</option>
+          </select>
+
+          <div class="mb-3">
+            <label for="formFile" class="form-label">Image</label>
+            <input class="form-control" type="file" id="formFile" name="image" formControlName="image" (change)="onFileSelected($event)"> 
+          </div>
+      
+        <button type="submit" class="btn btn-primary w-100">Submit</button>
+      </form>
+</div>
+
