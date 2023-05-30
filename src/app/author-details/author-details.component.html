@@ -1,0 +1,88 @@
+
+<div class="row">
+<div class="card mb-3" style="max-width: 1000px; max-height: 600px; border: none;">
+    <div class="row g-0">
+    <div class="col-md-4">
+        <img [src]='"http://localhost:5000/assets/"+selectedAuthor.image' class="img-fluid rounded-start" style="height: 350px; width: 450px;">
+    </div>
+    <div class="col-md-8">
+        <div class="card-body">
+        <h3 class="card-title">{{selectedAuthor.firstName}} {{selectedAuthor.lastName}}</h3>
+        <p class="card-text"><span class="txt">{{selectedAuthor.dateOfBirth | date : 'MMMM d, y'}} </span></p>
+        <p class="card-text"><span class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit esse dolor ullam vero architecto, enim numquam adipisci magnam. Quod aperiam mollitia velit, ex soluta dolorem accusantium totam sint laudantium in!</span> </p>
+        </div>
+    </div>
+    </div>
+</div>
+</div>
+<!-- <div class="row px-3 py-3" style="border: 1px solid black;"> -->
+<div class="row px-3 py-3">
+    <h2>Author's Books</h2>
+    <div class="card mb-3" style="max-width: 100%;">
+        <div class="row g-0">
+        <div class="col-md-2">
+            <img width="200px" height="200px" src="https://cdn1.iconfinder.com/data/icons/avatar-2-2/512/Writer-512.png" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+            <h5 class="card-title">أفراح القبة</h5>
+            <br>
+            <p>
+            <span class="checked"> <fa-icon [icon]="faStar"></fa-icon> </span>
+            <span class="checked"> <fa-icon [icon]="faStar"></fa-icon> </span>
+            <span class="checked"> <fa-icon [icon]="faStar"></fa-icon> </span>
+            <span> <fa-icon [icon]="faStar"></fa-icon> </span>
+            <span> <fa-icon [icon]="faStar"></fa-icon> </span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span>3.2 - 356 Ratings</span>
+        </p>
+            </div>
+        </div>
+        <div class="col-md-2 mt-5">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                Please Choose
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="#">Currently Read</a></li>
+                <li><a class="dropdown-item" href="#">Want to Read</a></li>
+                <li><a class="dropdown-item" href="#">Read</a></li>
+                </ul>
+            </div>
+        </div>
+        </div>
+    </div>
+    <hr>
+    <div class="card mb-3" style="max-width: 100%;">
+        <div class="row g-0">
+        <div class="col-md-2">
+            <img width="200px" height="200px" src="https://cdn1.iconfinder.com/data/icons/avatar-2-2/512/Writer-512.png" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+            <h5 class="card-title">أفراح القبة</h5>
+            <br>
+            <p>
+            <span class="checked"> <fa-icon [icon]="faStar"></fa-icon> </span>
+            <span class="checked"> <fa-icon [icon]="faStar"></fa-icon> </span>
+            <span class="checked"> <fa-icon [icon]="faStar"></fa-icon> </span>
+            <span> <fa-icon [icon]="faStar"></fa-icon> </span>
+            <span> <fa-icon [icon]="faStar"></fa-icon> </span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span>3.2 - 356 Ratings</span>
+        </p>
+            </div>
+        </div>
+        <div class="col-md-2 mt-5">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                Please Choose
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="#">Currently Read</a></li>
+                <li><a class="dropdown-item" href="#">Want to Read</a></li>
+                <li><a class="dropdown-item" href="#">Read</a></li>
+                </ul>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
