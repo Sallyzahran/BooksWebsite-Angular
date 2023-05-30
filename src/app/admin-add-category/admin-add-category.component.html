@@ -1,0 +1,18 @@
+
+ <div class="container">
+
+
+
+
+<form [formGroup] ="formValue" style="margin-top: 200px;" >
+    <div class="form-group">
+      <label for="exampleInputEmail1" >name</label>
+      <input  formControlName="name"  type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter the name of category" >
+    </div>
+  <br> <br>
+    <button  (click)="addCategory()" routerLink="/AdminCategory" type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  <i class="fas fa-user"></i>
+
+
+</div> 

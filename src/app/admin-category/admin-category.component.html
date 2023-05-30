@@ -1,0 +1,41 @@
+ 
+
+<div class="container">
+
+ <div class="container" style="margin-top: 100px;" >
+
+
+ <button  routerLink="/addCategory"  type="button" class="btn btn-dark " style="margin-right: 5px;">ADD</button>
+
+ <!-- <button   routerLink="" type="button" class="btn btn-dark">All Categories</button> -->
+<br><br>
+
+<table class="table table-striped">
+    <thead>
+      <tr>
+       
+        <th scope="col">ID</th>
+        <th scope="col">Title</th>
+        <th>Action</th>
+
+      </tr>
+    </thead>
+    <tbody  *ngFor="let category of categories; let i=index"  >
+      <tr>
+        <th scope="row">{{i+1}}</th>
+        <td>{{category.name}}</td>
+         <td><button  (click)="deleteCategory(category._id)">remove</button> 
+          <button  routerLink="/updateCategory/{{category._id}}" >edit</button></td>
+         
+      </tr>
+
+
+     
+    </tbody>
+  </table>
+  <i class="fa-solid fa-location-xmark" style="color: #2f1704;"></i>
+ </div>
+
+
+</div>
+ 
