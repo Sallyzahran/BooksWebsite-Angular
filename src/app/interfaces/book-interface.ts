@@ -1,22 +1,23 @@
 export interface BookInterface {
     title:string,
     description?:string,
-    categoryId:string|category,
-    authorId:string|author,
+    categoryId?:category,
+    authorId?:author,
     statususers?:Array<statususers>,
     reviews?:Array<reviwes>,
-    _id?:string
+    _id:string,
+    image?:string
 
 }
 
 interface category{
-    name:string
+    name:string|undefined
     _id:string
 
 }
 
 interface author{
-    firsName:string,
+    firstName:string,
     LastName:string,
     image:string,
     DateOfBirth:string,

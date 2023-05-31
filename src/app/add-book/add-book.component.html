@@ -1,6 +1,5 @@
 <div class=" w-50 mx-auto ">
     <div class="">
-  <h2>{{message}}  </h2>  
         <h1 class="text-primary text-center">Add New Book </h1>
     </div>
     <form class="border p-4" [formGroup]="AddBookForm" (ngSubmit)="addBook()" enctype="multipart/form-data">
@@ -44,6 +43,10 @@
           </div>
       
         <button type="submit" class="btn btn-primary w-100">Submit</button>
+        <br>
+
+        <p *ngIf="errorMessage" class="alert-danger alert ">{{errorMessage}}  </p>  
+
       </form>
 </div>
 

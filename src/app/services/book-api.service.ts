@@ -1,7 +1,7 @@
 import { BookInterface } from './../interfaces/book-interface';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -11,11 +11,15 @@ private path = 'http://localhost:5000/book'
   // private allBooks=new BehaviorSubject<BookInterface[]>([]);
   // Books=this.allBooks.asObservable();
   constructor(private http:HttpClient) { }
-
  getBooks(){
-  return this.http.get(this.path);
+  return this.http.get<BookInterface[]>(this.path);
  }
-addBook(body:any){
+
+ getBook(id:string){
+  return this.http.get<BookInterface>(this.path+`/${id}`)
+}
+
+  addBook(body:any){
 
 return this.http.post(this.path,body);
 }
@@ -23,21 +27,21 @@ return this.http.post(this.path,body);
 getAuthors(){
   return this.http.get('http://localhost:5000/author');
 }
+
 getCategories(){
   return this.http.get('http://localhost:5000/category');
 }
-  // AddProductToCart(product:Product):null{
-  //   if(product.count){
-  //      product.count++;
-  //      return null;
-  //   }
-  //  product['count']=1
-  //   this.productInCart.next(this.productInCart.value.concat(product));
-  //   return null
-  // }
-  // deleteProduct(){
 
-  //   // this.productInCart.next();
+updateBook(body:any,id:string){
+  return this.http.put(this.path+`/${id}`,body);
+}
 
-  // }
+deleteBook(id:string){
+
+  return this.http.delete(this.path+`/${id}`)
+}
+//delete userId From Uri add token to header :D
+getUserBook(userId:string){
+return this.http.get(`http://localhost:5000/mybook/${userId}`)
+}
 }

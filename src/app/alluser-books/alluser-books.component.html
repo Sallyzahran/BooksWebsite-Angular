@@ -1,0 +1,28 @@
+<div class="container">
+    <h3 class="text-center text-primary mt-5">All Book</h3>
+    <a routerLink="/addbook"><i class="fa fa-plus text-right"></i></a>
+    <table class="table table-striped">
+
+        <thead>
+          <tr >
+            <th scope="col">cover</th>
+            <th scope="col">Name</th>
+            <th scope="col">Author</th>
+            <th scope="col">Avg Rate</th>
+            <th scope="col">Sheleve</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let book of booksList; let i =index">
+            <th scope="row"><img [src]="'http://localhost:5000/assets/' + book.image" alt="" width="100" height="100" *ngIf="book?.image"></th>
+            <td><a routerLink=""></a>{{book?.title}}</td>
+            <td>{{book?.authorId?.firstName}}</td>
+            <td>{{book?.statususers?.rating}}</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    
+
+</div>
