@@ -1,31 +1,39 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Category } from '../interfaces/category';
+import { Book } from '../interfaces/category';
+import { CategoryService } from '../services/category.service';
 @Component({
   selector: 'app-category-books',
   templateUrl: './category-books.component.html',
   styleUrls: ['./category-books.component.css']
 })
-export class CategoryBooksComponent {
+ export class CategoryBooksComponent {
 
-    categories :Category[] =[
-
-    ]
-   selectedCategory: Category |undefined ;  
 
   
+categoryBooks: Book[] = [];
+categoryId: string = '';
  
-constructor(private activateRoute:ActivatedRoute ){}
+constructor(private activateRoute:ActivatedRoute , private categoryservice:CategoryService ){}
 
 
-ngOnInit(){
-  // console.log(this.activatedRouter)
-  
-  console.log(this.activateRoute.snapshot.params['_id'])
-  // console.log(this.categories.find(category => category._id ==this.activateRoute.snapshot.params['_id']))
+ngOnInit():void{
 
-this.selectedCategory = this.categories.find(category => category._id ==this.activateRoute.snapshot.params['_id'])
-console.log(this.selectedCategory)
+
+  this.activateRoute.params.subscribe(params => {
+    this.categoryId = params['id'];
+    this.CategoryBooks();
+  });
+
+
 }
 
+
+CategoryBooks() {
+  this.categoryservice.getCategoryBooks(this.categoryId).subscribe((data: Book[]) => {
+    this.categoryBooks = data;
+  });
+
 }
+ }

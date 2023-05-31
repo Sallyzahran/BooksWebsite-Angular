@@ -32,24 +32,34 @@ const routes: Routes = [
  },
 
 
+ {
+  path:"allcategories",
+  component : CategoryComponent
+ },
+ 
+
+
+
 {
-  path : "app-category-books/:_id",
+  path : "app-category-books/:id",
   component: CategoryBooksComponent
 
  },
  
  {
   path:"addCategory",
-  component :AdminAddCategoryComponent
+  component :AdminAddCategoryComponent,
  },
  {
   path: "AdminCategory",
   component : AdminCategoryComponent
  },
  {
-  path : "updateCategory/:_id",
+  path : "updateCategory/:id",
   component : AdminUpdateCategoryComponent
- }
+ },
+
+
 
 
 

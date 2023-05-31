@@ -1,3 +1,15 @@
 
+<div class="container">
 
-<!-- <h1>{{selectedCategory.name}}</h1> -->
+
+
+
+<h1>Category Name</h1>
+
+<div *ngFor="let book of categoryBooks">
+    <h3>{{ book.title }}</h3>
+    <!-- <p>{{ book.authorId }}</p> -->
+    <!-- <img src="{{ book.image }}" alt="{{ book.title }}" width="200"> -->
+  </div>
+
+</div>

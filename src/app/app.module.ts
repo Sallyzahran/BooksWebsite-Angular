@@ -34,6 +34,9 @@ import { AdminCategoryComponent } from './admin-category/admin-category.componen
 import { AdminAddCategoryComponent } from './admin-add-category/admin-add-category.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminUpdateCategoryComponent } from './admin-update-category/admin-update-category.component';
+// import { CategorybookComponent } from './categorybook/categorybook.component';
+// import { ListComponent } from './list/list.component';
+
 
 
 @NgModule({
@@ -44,7 +47,9 @@ import { AdminUpdateCategoryComponent } from './admin-update-category/admin-upda
     CategoryBooksComponent,
     AdminCategoryComponent,
     AdminAddCategoryComponent,
-    AdminUpdateCategoryComponent
+    AdminUpdateCategoryComponent,
+    // CategorybookComponent,
+    // ListComponent
   ],
   imports: [
     FormsModule,

@@ -14,7 +14,7 @@ export class AdminUpdateCategoryComponent {
   // formValue !:FormGroup;
   // categories: Category = {} as Category;
 
-
+name !:string
   constructor(private formBuilder:FormBuilder , private categoryService:CategoryService, private router:ActivatedRoute   ){}
   
   formValue = new FormGroup({
@@ -24,8 +24,8 @@ export class AdminUpdateCategoryComponent {
 
 
 ngOnInit(): void{
-  console.log(this.router.snapshot.params['_id'])
-  this.categoryService.getCategiryId(this.router.snapshot.params['_id']).subscribe((res:any)=>{
+  console.log(this.router.snapshot.params['id'])
+  this.categoryService.getCategiryId(this.router.snapshot.params['id']).subscribe((res:any)=>{
     console.log(res)
 
     
@@ -38,12 +38,11 @@ ngOnInit(): void{
 
   })
 
-
 }
 
 updateCategory(){
 
-this.categoryService.UpdateCategory(this.router.snapshot.params['_id'],this.formValue.value).subscribe((res)=>{
+this.categoryService.UpdateCategory(this.router.snapshot.params['id'],this.formValue.value).subscribe((res)=>{
   console.log(res)
 })
 

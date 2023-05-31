@@ -1,3 +1,4 @@
+
 import { Component,Input ,Output,EventEmitter} from '@angular/core';
 import { Category } from '../interfaces/category';
 import { CategoryService } from '../services/category.service';
@@ -17,14 +18,14 @@ export class CategoryCardComponent {
  constructor (private router: Router, categoryService:CategoryService){}
     
 
-  emitToParent(_id:number){
+  // emitToParent(id:number){
 
-    /// this.router.navigate(['product-details',id])
-    // this.emitFromChild.emit(_id)
+  //   /// this.router.navigate(['product-details',id])
+  //   // this.emitFromChild.emit(_id)
 
-    console.log(_id)
-    this.router.navigate(['app-category-books',_id ])
-   }
+  //   console.log(id)
+  //   this.router.navigate(['app-category-books', id ])
+  //  }
  
 
 }
