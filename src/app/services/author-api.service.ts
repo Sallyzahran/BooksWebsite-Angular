@@ -37,4 +37,8 @@ export class AuthorApiService {
   deleteAuthor(id : number) {
     return this.http.delete(`http://localhost:5000/author/${id}`);
   }
+
+  getBook(id : number) {
+    return this.http.get(`http://localhost:5000/author/${id}/book`);
+  }
 }
