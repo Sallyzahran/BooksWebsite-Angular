@@ -1,98 +1,32 @@
-<!--  
 
-<div class="container">
-
- <div class="container" style="margin-top: 100px;" >
-
-
- <button  routerLink="/addCategory"  type="button" class="btn btn-dark " style="margin-right: 5px;">ADD</button>
-
-<br><br>
-
-<table class="table table-striped">
-    <thead>
-      <tr>
-       
-        <th scope="col">ID</th>
-        <th scope="col">Title</th>
-        <th>Action</th>
-
-      </tr>
-    </thead>
-    <tbody  *ngFor="let category of categories; let i=index"  >
-      <tr>
-        <th scope="row">{{i+1}}</th>
-        <td>{{category.name}}</td>
-         <td><button  (click)="deleteCategory(category._id)">remove</button> 
-          <button  [routerLink]="['/updateCategory',category._id]" >edit</button></td>
-
-      </tr>
-
-
-     
-    </tbody>
-  </table>
-  <i class="fa-solid fa-location-xmark" style="color: #2f1704;"></i>
- </div>
- <button type="button" class="btn btn-dark">Dark</button>
-
-
-</div>
-  -->
-
-
-
-
-
-
-
-
-
-
-
- 
-
-  <div class="container">
-
-    <div class="container" style="margin-top: 100px;" >
-   
-   
-    <button  routerLink="/addCategory"  type="button" class="btn btn-dark " style="margin-right: 5px;">ADD</button>
-   
-   <br><br>
-   
-   <table class="table table-striped">
-       <thead>
-         <tr>
+       <div class="container">
+        <h3 class="text-center text-dark mt-5">Categories</h3>
+        <a routerLink="/addCategory" ><i class="fa fa-plus text-dark"></i></a>
+        <table class="table table-striped">
+    
+            <thead>
+              <tr >
+                <th scope="col">#</th>
+                <th scope="col">name</th>
+           
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let category of categories; let i=index" >
+                <th scope="row">{{i+1}}</th>
+                <td>{{category.name}}</td>
           
-           <th scope="col">ID</th>
-           <th scope="col">Title</th>
-           <th>Action</th>
-   
-         </tr>
-       </thead>
-       <tbody  *ngFor="let category of categories; let i=index"  >
-         <tr>
-           <th scope="row">{{i+1}}</th>
-           <td>{{category.name}}</td>
-            <td><button  (click)="deleteCategory(category._id)">remove</button> 
-             <!-- <button  [routerLink]="['updateCategorycategory._id}}" >edit</button></td> -->
-             <button (click)="editCategory(category._id)" >edit</button></td>
-   
-         </tr>
-   
-   
+                <td><i class="fa fa-edit mx-3" (click)="editCategory(category._id)"></i>
+                  <td> <a (click)="deleteCategory(category._id)">
+                    <i class="fa fa-trash"></i> 
+                   </a> </td>
+              </tr>
+            </tbody>
+          </table>
         
-       </tbody>
-     </table>
-     <i class="fa-solid fa-location-xmark" style="color: #2f1704;"></i>
+    
     </div>
-   
-   
-   </div>
-     
-   
-
 
 
 

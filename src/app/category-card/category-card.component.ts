@@ -18,14 +18,6 @@ export class CategoryCardComponent {
  constructor (private router: Router, categoryService:CategoryService){}
     
 
-  // emitToParent(id:number){
 
-  //   /// this.router.navigate(['product-details',id])
-  //   // this.emitFromChild.emit(_id)
-
-  //   console.log(id)
-  //   this.router.navigate(['app-category-books', id ])
-  //  }
- 
 
 }

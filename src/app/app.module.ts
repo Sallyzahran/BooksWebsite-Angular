@@ -48,6 +48,7 @@ import { AdminUpdateCategoryComponent } from './admin-update-category/admin-upda
     AdminCategoryComponent,
     AdminAddCategoryComponent,
     AdminUpdateCategoryComponent,
+   
     // CategorybookComponent,
     // ListComponent
   ],

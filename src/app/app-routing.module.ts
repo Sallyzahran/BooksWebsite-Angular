@@ -22,11 +22,10 @@ import { CategoryBooksComponent } from './category-books/category-books.componen
 import { CategoryComponent } from './category/category.component';
 import { AdminUpdateCategoryComponent } from './admin-update-category/admin-update-category.component';
 
+
 const routes: Routes = [
 
  {
-
-
   path:"",
   component : AdminCategoryComponent
  },
@@ -37,9 +36,6 @@ const routes: Routes = [
   component : CategoryComponent
  },
  
-
-
-
 {
   path : "app-category-books/:id",
   component: CategoryBooksComponent
@@ -50,14 +46,19 @@ const routes: Routes = [
   path:"addCategory",
   component :AdminAddCategoryComponent,
  },
+
  {
   path: "AdminCategory",
   component : AdminCategoryComponent
  },
+
  {
   path : "updateCategory/:id",
   component : AdminUpdateCategoryComponent
  },
+
+
+
 
 
 
