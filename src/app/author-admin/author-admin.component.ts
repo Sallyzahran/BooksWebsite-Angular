@@ -27,8 +27,10 @@ export class AuthorAdminComponent {
     // console.log(this.author);
   }
 
-  onDelete(authorId : number){
-    this.authorApiService.deleteAuthor(authorId)
+  onDelete(authorId : any){
+    this.authorApiService.deleteAuthor(authorId).subscribe(()=> {
+      this.author = this.author.filter(auth => auth._id !== authorId)
+    })
   }
 
   editDetails(id: number) {

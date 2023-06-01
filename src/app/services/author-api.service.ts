@@ -11,8 +11,8 @@ export class AuthorApiService {
   constructor(private http: HttpClient) { }
 
   // author : Author[] = [];
-  private authUpdated = new BehaviorSubject<Author[]>([])
-  authorUpdated = this.authUpdated.asObservable();
+  // private authUpdated = new BehaviorSubject<Author[]>([])
+  // authorUpdated = this.authUpdated.asObservable();
 
   getBooks(){
     return this.http.get(`http://localhost:5000/book/`);
@@ -35,16 +35,6 @@ export class AuthorApiService {
   }
 
   deleteAuthor(id : number) {
-    return this.http.delete(`http://localhost:5000/author/${id}`).subscribe(()=> {
-      console.log("Deleted");
-    });
+    return this.http.delete(`http://localhost:5000/author/${id}`);
   }
-
-  // deleteAuthor(id : number) {
-  //   return this.http.delete(`http://localhost:5000/author/${id}`).subscribe(()=> {
-  //     const updatedAuthors = this.author.filter(author=>author._id !== author._id);
-  //     this.author = updatedAuthors;
-  //     this.authUpdated.next([...this.author]) 
-  //   });
-  // }
 }
