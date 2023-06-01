@@ -11,29 +11,17 @@
           type="text"
            id="form3Example1" 
            class="form-control"  
-           placeholder="First name"
-           name="firstName"
-           formControlName="firstName"
+           placeholder="Username"
+           name="Username"
+           formControlName="Username"
            />
-           <div class="text-danger" *ngIf="registerForm.controls['firstName'].touched && registerForm.controls['firstName'].invalid " >
-            <span *ngIf="registerForm.controls['firstName']?.errors?.['required']">This field is required</span>
+           <div class="text-danger" *ngIf="registerForm.controls['Username'].touched && registerForm.controls['Username'].invalid " >
+            <span *ngIf="registerForm.controls['Username']?.errors?.['required']">This field is required</span>
            </div>
                  
         </div>
       </div>
-      <div class="col">
-        <div class="form-outline">
-          <input type="text" id="form3Example2" class="form-control" placeholder="Last name"
-          name="lastName"
-          formControlName="lastName"
-          />
-          <div class="text-danger" *ngIf="registerForm.controls['lastName'].touched && registerForm.controls['lastName'].invalid " >
-            <span *ngIf="registerForm.controls['lastName']?.errors?.['required']">This field is required</span>
 
-          </div>
-         
-</div>
-        </div>
       </div>
     
   
@@ -67,7 +55,7 @@
     </div>
   
     <!-- Submit button -->
-    <button type="submit" class="btn btn-primary btn-block mb-4" [disabled]="registerForm.invalid">Sign up</button>
+    <button (click)="login(registerForm)"   type="submit" class="btn btn-primary btn-block mb-4" [disabled]="registerForm.invalid">Sign up</button>
   
     <!-- Register buttons -->
     <div class="text-center">
