@@ -10,6 +10,8 @@ import { AddBookComponent } from './add-book/add-book.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UpdateBookComponent } from './update-book/update-book.component';
 import { AlluserBooksComponent } from './alluser-books/alluser-books.component';
+import { UserBooksStatusComponent } from './user-books-status/user-books-status.component';
+import { BookDetalisComponent } from './book-detalis/book-detalis.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { AlluserBooksComponent } from './alluser-books/alluser-books.component';
     AllBooksComponent,
     AddBookComponent,
     UpdateBookComponent,
-    AlluserBooksComponent, 
+    AlluserBooksComponent,
+    UserBooksStatusComponent,
+    BookDetalisComponent, 
   ],
   imports: [
     BrowserModule,

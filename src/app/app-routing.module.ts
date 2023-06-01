@@ -1,3 +1,5 @@
+import { BookDetalisComponent } from './book-detalis/book-detalis.component';
+import { UserBooksStatusComponent } from './user-books-status/user-books-status.component';
 import { AlluserBooksComponent } from './alluser-books/alluser-books.component';
 import { UpdateBookComponent } from './update-book/update-book.component';
 import { AddBookComponent } from './add-book/add-book.component';
@@ -21,6 +23,14 @@ const routes: Routes = [
   {
     path:"mybook/:userId",
     component:AlluserBooksComponent
+  },
+  {
+    path:"mybook/:status/:userId",
+    component:UserBooksStatusComponent
+  },
+  {
+    path:"book-detalis/:id",
+    component:BookDetalisComponent
   }
 ];
 

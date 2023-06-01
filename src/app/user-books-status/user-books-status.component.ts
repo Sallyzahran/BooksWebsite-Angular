@@ -1,25 +1,24 @@
+import { Router, ActivatedRoute } from '@angular/router';
+import { UserBooksApiService } from './../services/user-books-api.service';
 import { FormGroup, FormControl } from '@angular/forms';
-import { Router } from '@angular/router';
 import { Component } from '@angular/core';
-import { UserBooksApiService } from '../services/user-books-api.service';
-import { __values } from 'tslib';
 
 @Component({
-  selector: 'app-alluser-books',
-  templateUrl: './alluser-books.component.html',
-  styleUrls: ['./alluser-books.component.css']
+  selector: 'app-user-books-status',
+  templateUrl: './user-books-status.component.html',
+  styleUrls: ['./user-books-status.component.css']
 })
-export class AlluserBooksComponent {
+export class UserBooksStatusComponent {
   booksList!:any;
   statusForm!:FormGroup;
   statusBooks:Array<any>=[];
-
-  constructor(private bookService:UserBooksApiService , private router:Router){
+  statusparam!:string
+  constructor(private bookService:UserBooksApiService , private router:Router,recive:ActivatedRoute){
     this.statusForm = new FormGroup({
       status: new FormControl()
   });
- 
-    this.bookService.allUserBook("6470a42e6b2d1b0e0a2a85c0").subscribe(
+  this.statusparam=recive.snapshot.params['status'];
+    this.bookService.getBookByStatus("6470a42e6b2d1b0e0a2a85c0",this.statusparam).subscribe(
       (value)=>{
         this.booksList=value
 
@@ -28,7 +27,8 @@ export class AlluserBooksComponent {
            this.statusBooks[i]= value.status
         });
       }
-      })
+      }
+      )
 
   }
 
