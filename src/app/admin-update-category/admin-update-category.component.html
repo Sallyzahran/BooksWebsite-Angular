@@ -1,0 +1,28 @@
+
+<div class="container">
+
+
+
+
+    <form [formGroup] ="formValue" style="margin-top: 200px;">
+        <div class="form-group" >
+          <label for="exampleInputEmail1" >name</label>
+          <input  formControlName="name"  type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter the name of category" >
+        </div>
+        <div
+        *ngIf="formValue.controls['name'].touched
+        && formValue.controls['name'].invalid">
+    
+          <small id="nameHelp" class="form-text text-danger "
+           *ngIf="formValue.controls['name'].errors?.['required']">
+                name is required
+          </small>
+    
+        </div>
+      <br> <br>
+        <button   routerLink="/AdminCategory" type="submit"  (click)="updateCategory()" class="btn btn-primary">Submit</button>
+      </form>
+    
+    
+    </div> 
+    
