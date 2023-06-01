@@ -18,6 +18,7 @@ import { AdminCategoryComponent } from './admin-category/admin-category.componen
 import { AdminAddCategoryComponent } from './admin-add-category/admin-add-category.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminUpdateCategoryComponent } from './admin-update-category/admin-update-category.component';
+import { AddreviewComponent } from './addreview/addreview.component';
 
 
 
@@ -37,6 +38,7 @@ import { AdminUpdateCategoryComponent } from './admin-update-category/admin-upda
     AdminCategoryComponent,
     AdminAddCategoryComponent,
     AdminUpdateCategoryComponent,
+    AddreviewComponent,
    
    
   ],

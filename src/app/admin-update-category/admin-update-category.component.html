@@ -20,7 +20,11 @@
     
         </div>
       <br> <br>
-        <button   routerLink="/AdminCategory" type="submit"  (click)="updateCategory()" class="btn btn-primary">Submit</button>
+        <button   routerLink="/AdminCategory" type="submit"  (click)="updateCategory()" [disabled]="!formValue.value.name" class="btn btn-primary">Submit</button>
+        <button   routerLink="/AdminCategory" type="submit" class="btn btn-primary cancel ">cancel</button>
+
+
+  
       </form>
     
     

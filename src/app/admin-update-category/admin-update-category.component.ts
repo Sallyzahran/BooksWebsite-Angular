@@ -25,9 +25,7 @@ ngOnInit(): void{
   this.categoryService.getCategiryId(this.router.snapshot.params['id']).subscribe((res:any)=>{
     console.log(res)
 
-    
-    
- this.formValue = new FormGroup({
+    this.formValue = new FormGroup({
 
     name: new FormControl(res['name'])
   });
@@ -47,3 +45,4 @@ this.categoryService.UpdateCategory(this.router.snapshot.params['id'],this.formV
   
 
 }
+

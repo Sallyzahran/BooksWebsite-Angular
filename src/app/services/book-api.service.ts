@@ -44,4 +44,14 @@ deleteBook(id:string){
 getUserBook(userId:string){
 return this.http.get(`http://localhost:5000/mybook/${userId}`)
 }
+
+
+addReview(id: string, body: any) {
+  return this.http.post(`http://localhost:5000/review/${id}`, body);
+
+
+}
+
+
+
 }
