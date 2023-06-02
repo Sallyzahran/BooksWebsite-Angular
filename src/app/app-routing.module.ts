@@ -1,3 +1,6 @@
+import { notGuestGuard } from './Guards/not-guest.guard';
+import { isAdminGuard } from './Guards/is-admin.guard';
+import { authGuardGuard } from './Guards/auth-guard.guard';
 import { UserBooksComponent } from './user-books/user-books.component';
 import { HomeComponent } from './home/home.component';
 import { BookDetalisComponent } from './book-detalis/book-detalis.component';
@@ -26,99 +29,141 @@ import { NotFoundComponent } from './not-found/not-found.component';
 const routes: Routes = [
   {
     path:"books",
-    component:AllBooksComponent
+    component:AllBooksComponent,
+    canActivate: [authGuardGuard,isAdminGuard] 
+
   },
   {
     path:"book-list",
-    component:UserBooksComponent
+    component:UserBooksComponent,
+    canActivate: [authGuardGuard]  
+
   },
   {
     path:"addbook",
-    component:AddBookComponent
+    component:AddBookComponent,
+    canActivate: [authGuardGuard,isAdminGuard] 
+
   },
   {
     path:"editbook/:id",
-    component:UpdateBookComponent
+    component:UpdateBookComponent,
+    canActivate: [authGuardGuard,isAdminGuard] 
+
   },
   {
     path:"mybook",
-    component:AlluserBooksComponent
+    component:AlluserBooksComponent,
+    canActivate: [authGuardGuard]  
+
   },
   {
     path:"mybook/:status",
     component:UserBooksStatusComponent
+    ,    canActivate: [authGuardGuard]  
+
   },
   {
     path:"book-details/:id",
-    component:BookDetalisComponent
+    component:BookDetalisComponent,
+    canActivate: [authGuardGuard]  
+
   },
   
    {
     path:"allcategories",
-    component : CategoryComponent
+    component : CategoryComponent,
+    canActivate: [authGuardGuard]  
+
+
    },
    
   {
     path : "app-category-books/:id",
-    component: CategoryBooksComponent
+    component: CategoryBooksComponent,
+    canActivate: [authGuardGuard]  
+
   
    },
    
    {
     path:"addCategory",
     component :AdminAddCategoryComponent,
+    canActivate: [authGuardGuard,isAdminGuard] 
+
    },
   
    {
     path: "AdminCategory",
-    component : AdminCategoryComponent
+    component : AdminCategoryComponent,
+    canActivate: [authGuardGuard,isAdminGuard] 
+
    },
   
    {
     path : "updateCategory/:id",
-    component : AdminUpdateCategoryComponent
+    component : AdminUpdateCategoryComponent,
+    canActivate: [authGuardGuard,isAdminGuard]  
+
    },
    {
     path : "addreview/:id",
-    component : AddreviewComponent
+    component : AddreviewComponent,
+    canActivate: [authGuardGuard]  
+
    },
   
   {
     path: "author-list",
-    component: AuthorListComponent
+    component: AuthorListComponent,
+    canActivate: [authGuardGuard]  
+
   },
   {
     // path: "author-details",
     path: "author-details/:id",
-    component: AuthorDetailsComponent
+    component: AuthorDetailsComponent,
+    canActivate: [authGuardGuard]  
+
   },
   {
     path: "author-admin",
-    component: AuthorAdminComponent
+    component: AuthorAdminComponent,
+    canActivate: [authGuardGuard,isAdminGuard] 
+
   },
   {
     path: "add-author",
-    component: AddAuthorComponent
+    component: AddAuthorComponent,
+    canActivate: [authGuardGuard,isAdminGuard] 
+
   },
   {
     path: "edit-author/:id",
-    component: EditAuthorComponent
+    component: EditAuthorComponent,
+    canActivate: [authGuardGuard,isAdminGuard]  
+
   },
 
    {
    path : "login",
-   component : LoginComponent
+   component : LoginComponent,
+   canActivate: [notGuestGuard]
  
   },
   {
     path : "register",
-    component : RegisterComponent
+    component : RegisterComponent,
+    canActivate: [notGuestGuard]
+
   
    },
   {
     path : "",
-    component : HomeComponent
-  
+    component : HomeComponent,
+
+    canActivate: [authGuardGuard]  
+
    },
    {
     path : "**",

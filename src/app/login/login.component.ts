@@ -16,18 +16,12 @@ loclStorage!:Storage
 
   constructor(public authService: AuthService,private router:Router){
     this.loclStorage=window.localStorage
-    if(this.loclStorage.getItem('token')){
-      if(this.loclStorage.getItem('isAdmin')){
-         this.router.navigate(['books'])
-        }
-      this.router.navigate([''])
-    }
   } 
  
   login(form: NgForm){  
-    if(form.invalid){  
-      return;  
-    }  
+    // if(form.invalid){  
+    //   return;  
+    // }  
     this.authService.LoginUser(form.value.email, form.value.password);  
   }
   
@@ -36,8 +30,8 @@ loclStorage!:Storage
   whenSubmit(form :NgForm){
     if(this.loclStorage.getItem('isAdmin')){
       this.router.navigate(['books'])
-     }
-   this.router.navigate([''])
+     }else
+     this.router.navigate(['/book-list'])
  
   }
 
