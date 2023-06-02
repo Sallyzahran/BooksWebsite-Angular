@@ -23,7 +23,6 @@ import { AuthorListComponent } from './author-list/author-list.component';
 // import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AuthorAdminComponent } from './author-admin/author-admin.component';
 import { AuthorDetailsComponent } from './author-details/author-details.component';
-import { NotFoundComponent } from './not-found/not-found.component';
 import { AddAuthorComponent } from './add-author/add-author.component';
 import { EditAuthorComponent } from './edit-author/edit-author.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -49,7 +48,6 @@ import { AuthorApiService } from './services/author-api.service';
     AuthorListComponent,
     AuthorAdminComponent,
     AuthorDetailsComponent,
-    NotFoundComponent,
     AddAuthorComponent,
     EditAuthorComponent
   ],
