@@ -3,7 +3,7 @@ import { BookApiService } from './../services/book-api.service';
 import { UserBooksApiService } from './../services/user-books-api.service';
 import { BookInterface } from './../interfaces/book-interface';
 import { Component } from '@angular/core';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-book-detalis',
   templateUrl: './book-detalis.component.html',
@@ -12,8 +12,10 @@ import { Component } from '@angular/core';
 export class BookDetalisComponent {
 book!:BookInterface;
 avgRateVariable!:number;
+rating: number | undefined;
+  review: string | undefined;
 
-constructor(private bookservice:BookApiService,recive:ActivatedRoute){
+constructor(private bookservice:BookApiService,private recive:ActivatedRoute,private router: Router){
 
   this.bookservice.getBook(recive.snapshot.params['id']).subscribe((value)=>this.book=value)
   this.avgRate()
@@ -32,4 +34,53 @@ avgRate(){
 
   }
 }
+
+
+ngOnInit(): void {
+  const bookId = this.recive.snapshot.params['id'];
+  this.bookservice.getBook(bookId).subscribe(book => {
+    this.book = book;
+    const state = window.history.state;
+    if (state && state.rating && state.review) {
+      this.rating = state.rating;
+      this.review = state.review;
+    }
+  });
 }
+
+
+addreview( id:any){
+
+  this.router.navigate(['addreview',id])
+}
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

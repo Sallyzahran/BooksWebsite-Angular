@@ -1,4 +1,3 @@
-
 <div class="container">
 
 
@@ -7,7 +6,7 @@
     <form [formGroup] ="formValue" style="margin-top: 200px;">
         <div class="form-group" >
           <label for="exampleInputEmail1" >name</label>
-          <input  formControlName="name"  type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter the name of category" >
+          <input  formControlName="name"  [(ngModel)]="name" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter the name of category" >
         </div>
         <div
         *ngIf="formValue.controls['name'].touched
@@ -20,9 +19,14 @@
     
         </div>
       <br> <br>
-        <button   routerLink="/AdminCategory" type="submit"  (click)="updateCategory()" class="btn btn-primary">Submit</button>
+        <button   type="submit"  (click)="updateCategory()" [disabled]="!formValue.value.name" class="btn btn-primary">Submit</button>
+        <button   routerLink="/AdminCategory" type="submit" class="btn btn-primary cancel ">cancel</button>
+
+
+  
       </form>
     
     
     </div> 
-    
+
+ 

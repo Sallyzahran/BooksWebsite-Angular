@@ -1,27 +1,19 @@
 
- <div class="container">
 
+<div class="w-50 mx-auto">
+  <div class="container">
+    <form [formGroup]="formValue" style="margin-top: 200px;">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Name</label>
+        <input formControlName="name" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter the name of category">
+      </div>
+      <div *ngIf="formValue.controls['name'].touched && formValue.controls['name'].invalid">
+        <small id="nameHelp" class="alert-danger alert mt-2  " *ngIf="formValue.controls['name'].errors?.['required']">
+          Name is required.
+        </small>
+      </div>
+      <br><br>
+      <button   (click)="addCategory()" routerLink="/AdminCategory" type="submit" class="btn btn-primary" [disabled]="!formValue.value.name">Submit</button> 
+      <button   routerLink="/AdminCategory" type="submit" class="btn btn-primary cancel ">cancel</button>
 
-
-
-<form [formGroup] ="formValue" style="margin-top: 200px;" >
-    <div class="form-group">
-      <label for="exampleInputEmail1" >name</label>
-      <input  formControlName="name"  type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter the name of category" >
-    </div>
-    <div
-    *ngIf="formValue.controls['name'].touched
-    && formValue.controls['name'].invalid">
-
-      <small id="nameHelp" class="form-text text-danger "
-       *ngIf="formValue.controls['name'].errors?.['required']">
-            name is required
-      </small>
-
-    </div>
-  <br> <br>
-    <button  (click)="addCategory()" routerLink="/AdminCategory" type="submit" class="btn btn-primary">Submit</button>
-  </form>
-
-
-</div> 
+    </form>

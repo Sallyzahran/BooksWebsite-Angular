@@ -11,6 +11,7 @@ import { AdminCategoryComponent } from './admin-category/admin-category.componen
 import { CategoryBooksComponent } from './category-books/category-books.component';
 import { CategoryComponent } from './category/category.component';
 import { AdminUpdateCategoryComponent } from './admin-update-category/admin-update-category.component';
+import { AddreviewComponent } from './addreview/addreview.component';
 
 const routes: Routes = [
   {
@@ -34,7 +35,7 @@ const routes: Routes = [
     component:UserBooksStatusComponent
   },
   {
-    path:"book-detalis/:id",
+    path:"book-details/:id",
     component:BookDetalisComponent
   },
   
@@ -62,6 +63,10 @@ const routes: Routes = [
    {
     path : "updateCategory/:id",
     component : AdminUpdateCategoryComponent
+   },
+   {
+    path : "addreview/:id",
+    component : AddreviewComponent
    },
   
 ];
