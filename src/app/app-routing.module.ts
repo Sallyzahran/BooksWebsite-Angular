@@ -1,3 +1,4 @@
+import { HomeComponent } from './home/home.component';
 import { BookDetalisComponent } from './book-detalis/book-detalis.component';
 import { UserBooksStatusComponent } from './user-books-status/user-books-status.component';
 import { AlluserBooksComponent } from './alluser-books/alluser-books.component';
@@ -20,7 +21,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
 
 const routes: Routes = [
   {
@@ -36,7 +36,7 @@ const routes: Routes = [
     component:UpdateBookComponent
   },
   {
-    path:"mybook/:userId",
+    path:"mybook",
     component:AlluserBooksComponent
   },
   {
@@ -112,7 +112,7 @@ const routes: Routes = [
    },
   {
     path : "",
-    component : SidebarComponent
+    component : HomeComponent
   
    },
    {

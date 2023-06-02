@@ -15,7 +15,7 @@ import { AdminUpdateCategoryComponent } from './admin-update-category/admin-upda
 import { AddreviewComponent } from './addreview/addreview.component';
 import { StarRatingPipe } from './star-rating.pipe';
 import { AuthorListComponent } from './author-list/author-list.component';
-// import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AuthorAdminComponent } from './author-admin/author-admin.component';
 import { AuthorDetailsComponent } from './author-details/author-details.component';
 import { AddAuthorComponent } from './add-author/add-author.component';
@@ -32,6 +32,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     RegisterComponent,
     NavbarComponent,
     NotFoundComponent,
-    SidebarComponent
+    SidebarComponent,
+    HomeComponent
   ],
   imports: [
     FormsModule,
@@ -67,6 +69,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     AppRoutingModule,
     HttpClientModule,  
     ReactiveFormsModule,
+    FontAwesomeModule
   ],
   providers: [
     BookApiService,

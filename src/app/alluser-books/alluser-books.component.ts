@@ -15,22 +15,22 @@ export class AlluserBooksComponent {
   statusBooks:Array<any>=[];
   ratingBooks:Array<any>=[];
   avgRateVariable:Array<any>=[];
-
+  
   constructor(private bookService:UserBooksApiService , private router:Router){
     
     this.statusForm = new FormGroup({
       status: new FormControl('')
   });
 
-      for(let i=0; i <this.booksList.length;i++){
-        this.bookService.getStatusOfUserBook('6470a42e6b2d1b0e0a2a85c0',this.booksList[i]._id).subscribe((value:any)=>{
-           this.statusBooks[i]= value.status
-        });
-      }
+      // for(let i=0; i <this.booksList.length;i++){
+      //   this.bookService.getStatusOfUserBook('6470a42e6b2d1b0e0a2a85c0',this.booksList[i]._id).subscribe((value:any)=>{
+      //      this.statusBooks[i]= value.status
+      //   });
+      // }
                             
   }
 async  ngOnInit() {
-    this.bookService.allUserBook("6470a42e6b2d1b0e0a2a85c0").subscribe(
+    this.bookService.allUserBook().subscribe(
     (value)=>{
       this.booksList=value
     for(let i=0; i <this.booksList.length;i++){

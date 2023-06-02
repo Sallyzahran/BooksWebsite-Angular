@@ -24,7 +24,9 @@ export class AuthService {
     //  console.log(response.body.token);
      localStorage.setItem('token' , response.body.token)
      localStorage.setItem('userId' , response.body.userId)
-     localStorage.setItem('isAdmin' , response.body.admin)
+     if(response.body.admin){
+           localStorage.setItem('isAdmin' , response.body.admin)
+     }
       // localStorage.getItem('token')
   
   })  

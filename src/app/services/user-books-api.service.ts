@@ -8,9 +8,9 @@ export class UserBooksApiService {
   private path = 'http://localhost:5000/mybook'
   constructor(private http:HttpClient) { }
 
-  allUserBook(userId:string)
+  allUserBook()
   {
-    return this.http.get(this.path+`/${userId}`)
+    return this.http.get(this.path)
   }
 
   AddStatus(status:string,userId:string,bookId:string)

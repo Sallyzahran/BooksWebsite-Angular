@@ -20,7 +20,15 @@ export class NavbarComponent {
     this.route.navigate(['login']);
     
   }
-   
+
+  isLoggedIn() {
+    return this.localStorage.getItem('token') !== null;
+  }
+   isAdmin(){
+    console.log( Boolean(this.localStorage.getItem('isAdmin')))
+    return Boolean(this.localStorage.getItem('isAdmin'))
+
+   }
   }
 
 
