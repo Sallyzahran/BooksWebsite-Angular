@@ -19,6 +19,8 @@ import { EditAuthorComponent } from './edit-author/edit-author.component';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 const routes: Routes = [
   {
@@ -108,6 +110,16 @@ const routes: Routes = [
     component : RegisterComponent
   
    },
+  {
+    path : "",
+    component : SidebarComponent
+  
+   },
+   {
+    path : "**",
+    component : NotFoundComponent
+   
+   }
 
 ];
 

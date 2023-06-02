@@ -11,34 +11,22 @@
           type="text"
            id="form3Example1" 
            class="form-control"  
-           placeholder="First name"
-           name="firstName"
-           formControlName="firstName"
+           placeholder="username"
+           name="username"
+           formControlName="username"
            />
-           <div class="text-danger" *ngIf="registerForm.controls['firstName'].touched && registerForm.controls['firstName'].invalid " >
-            <span *ngIf="registerForm.controls['firstName']?.errors?.['required']">This field is required</span>
+           <div class="text-danger" *ngIf="registerForm.controls['username'].touched && registerForm.controls['username'].invalid " >
+            <span *ngIf="registerForm.controls['username']?.errors?.['required']">This field is required</span>
            </div>
                  
         </div>
       </div>
-      <div class="col">
-        <div class="form-outline">
-          <input type="text" id="form3Example2" class="form-control" placeholder="Last name"
-          name="lastName"
-          formControlName="lastName"
-          />
-          <div class="text-danger" *ngIf="registerForm.controls['lastName'].touched && registerForm.controls['lastName'].invalid " >
-            <span *ngIf="registerForm.controls['lastName']?.errors?.['required']">This field is required</span>
 
-          </div>
-         
-</div>
-        </div>
       </div>
     
   
     <!-- Email input -->
-    <div class="form-outline mb-4">
+    <div  class="form-outline mb-4">
       <input type="email" id="form3Example3" class="form-control" placeholder="Email address" 
       name="email"
       formControlName="email"
@@ -67,7 +55,7 @@
     </div>
   
     <!-- Submit button -->
-    <button type="submit" class="btn btn-primary btn-block mb-4" [disabled]="registerForm.invalid">Sign up</button>
+    <button (click)="register(registerForm)"   type="submit" class="btn btn-primary btn-block mb-4" [disabled]="registerForm.invalid">Sign up</button>
   
     <!-- Register buttons -->
     <div class="text-center">

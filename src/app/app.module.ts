@@ -20,7 +20,6 @@ import { AuthorAdminComponent } from './author-admin/author-admin.component';
 import { AuthorDetailsComponent } from './author-details/author-details.component';
 import { AddAuthorComponent } from './add-author/add-author.component';
 import { EditAuthorComponent } from './edit-author/edit-author.component';
-import { HttpClientModule } from '@angular/common/http';
 import { AuthorApiService } from './services/author-api.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -29,6 +28,10 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { HttpClientModule } from '@angular/common/http';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -52,9 +55,11 @@ import { RegisterComponent } from './register/register.component';
     AuthorDetailsComponent,
     AddAuthorComponent,
     EditAuthorComponent,
-    AppComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    NavbarComponent,
+    NotFoundComponent,
+    SidebarComponent
   ],
   imports: [
     FormsModule,
