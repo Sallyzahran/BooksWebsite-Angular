@@ -17,8 +17,8 @@ export class AddAuthorComponent {
   constructor (private fb : FormBuilder, private router : Router, private authorApi : AuthorApiService) {
     this.addForm = this.fb.group({
       image: [''],
-      firstName: ['', [Validators.required, Validators.pattern(/^[A-Za-z]+$/)]],
-      lastName: ['', [Validators.required, Validators.pattern(/^[A-Za-z]+$/)]],
+      firstName: ['', [Validators.required, Validators.pattern(/^[a-zA-Z_ ]*$/)]],
+      lastName: ['', [Validators.required, Validators.pattern(/^[a-zA-Z_ ]*$/)]],
       dateOfBirth: [''],
     });
   }
@@ -38,6 +38,5 @@ export class AddAuthorComponent {
       formData.append('image', this.selectedFile);
     }
     this.authorApi.addAuthor(formData).subscribe((value)=>this.message=value)
-
     }
 }

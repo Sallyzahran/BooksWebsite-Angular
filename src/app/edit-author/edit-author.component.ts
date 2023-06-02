@@ -20,8 +20,8 @@ export class EditAuthorComponent {
   constructor (private fb : FormBuilder, private router : Router, private authorApi : AuthorApiService,private activatedRoute: ActivatedRoute) {
     this.updateForm = this.fb.group({
       image: [''],
-      firstName: ['', [Validators.required, Validators.pattern(/^[A-Za-z]+$/)]],
-      lastName: ['', [Validators.required, Validators.pattern(/^[A-Za-z]+$/)]],
+      firstName: ['', [Validators.required, Validators.pattern(/^[a-zA-Z_ ]*$/)]],
+      lastName: ['', [Validators.required, Validators.pattern(/^[a-zA-Z_ ]*$/)]],
       dateOfBirth: [''],
     });
   }
@@ -45,6 +45,6 @@ export class EditAuthorComponent {
       formData.append('image', this.selectedFile);
     }
     this.authorApi.updateAuthor(this.activatedRoute.snapshot.params['id'], formData).subscribe((value)=>this.message=value)
-    this.router.navigate(['author-admin'])
+    // this.router.navigate(['author-admin'])
     }
 }
