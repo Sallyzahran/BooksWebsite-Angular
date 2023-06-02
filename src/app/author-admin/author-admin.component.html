@@ -1,0 +1,24 @@
+<!-- <button style="float: right; border: none; background: none;"><fa-icon [icon]="faUserPlus"></fa-icon></button> -->
+<a routerLink="/add-author" style="float: right;"><fa-icon class="add-user" [icon]="faUserPlus"></fa-icon></a>
+<table class="table table-striped" style="text-align: center; border: 1px solid black;">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Image</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Date of Birth</th>
+        <th scope="col">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let auth of author; let i = index">
+        <td>{{i+1}}</td>
+        <td><img [src]='"http://localhost:5000/assets/"+auth.image' class="img-fluid rounded-start" style="height: 100px; width: 100px; border-radius: 5px;"></td>
+        <td>{{auth.firstName}}</td>
+        <td>{{auth.lastName}}</td>
+        <td>{{auth.dateOfBirth | date : 'MMMM d, y'}}</td>
+        <td><button (click)="editDetails(auth._id)" style="border: none; background: none;"><fa-icon [icon]="faPen"></fa-icon></button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button (click) = "onDelete(auth._id)" style="border: none; background: none;"><fa-icon [icon]="faTrashCan"></fa-icon></button></td>
+    </tr>
+    </tbody>
+</table>

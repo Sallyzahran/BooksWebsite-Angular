@@ -12,6 +12,11 @@ import { CategoryBooksComponent } from './category-books/category-books.componen
 import { CategoryComponent } from './category/category.component';
 import { AdminUpdateCategoryComponent } from './admin-update-category/admin-update-category.component';
 import { AddreviewComponent } from './addreview/addreview.component';
+import { AuthorDetailsComponent } from './author-details/author-details.component';
+import { AuthorListComponent } from './author-list/author-list.component';
+import { AuthorAdminComponent } from './author-admin/author-admin.component';
+import { AddAuthorComponent } from './add-author/add-author.component';
+import { EditAuthorComponent } from './edit-author/edit-author.component';
 
 const routes: Routes = [
   {
@@ -69,6 +74,29 @@ const routes: Routes = [
     component : AddreviewComponent
    },
   
+  {
+    path: "author-list",
+    component: AuthorListComponent
+  },
+  {
+    // path: "author-details",
+    path: "author-details/:id",
+    component: AuthorDetailsComponent
+  },
+  {
+    path: "author-admin",
+    component: AuthorAdminComponent
+  },
+  {
+    path: "add-author",
+    component: AddAuthorComponent
+  },
+  {
+    path: "edit-author/:id",
+    component: EditAuthorComponent
+  },
+ 
+
 ];
 
 @NgModule({

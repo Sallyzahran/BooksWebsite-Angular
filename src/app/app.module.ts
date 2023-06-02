@@ -11,7 +11,6 @@ import { AlluserBooksComponent } from './alluser-books/alluser-books.component';
 import { UserBooksStatusComponent } from './user-books-status/user-books-status.component';
 import { BookDetalisComponent } from './book-detalis/book-detalis.component';
 import { CategoryComponent } from './category/category.component';
-import { HttpClientModule } from '@angular/common/http';
 import { CategoryCardComponent } from './category-card/category-card.component';
 import { CategoryBooksComponent } from './category-books/category-books.component';
 import { AdminCategoryComponent } from './admin-category/admin-category.component';
@@ -20,9 +19,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminUpdateCategoryComponent } from './admin-update-category/admin-update-category.component';
 import { AddreviewComponent } from './addreview/addreview.component';
 import { StarRatingPipe } from './star-rating.pipe';
-
-
-
+import { AuthorListComponent } from './author-list/author-list.component';
+// import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AuthorAdminComponent } from './author-admin/author-admin.component';
+import { AuthorDetailsComponent } from './author-details/author-details.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { AddAuthorComponent } from './add-author/add-author.component';
+import { EditAuthorComponent } from './edit-author/edit-author.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AuthorApiService } from './services/author-api.service';
 
 @NgModule({
   declarations: [
@@ -41,8 +46,12 @@ import { StarRatingPipe } from './star-rating.pipe';
     AdminUpdateCategoryComponent,
     AddreviewComponent,
     StarRatingPipe,
-   
-   
+    AuthorListComponent,
+    AuthorAdminComponent,
+    AuthorDetailsComponent,
+    NotFoundComponent,
+    AddAuthorComponent,
+    EditAuthorComponent
   ],
   imports: [
     FormsModule,
@@ -54,7 +63,12 @@ import { StarRatingPipe } from './star-rating.pipe';
   ],
   providers: [
     BookApiService,
-     ReactiveFormsModule
+     ReactiveFormsModule,
+    // FontAwesomeModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    AuthorApiService
+
   ],
   bootstrap: [AppComponent]
 })
