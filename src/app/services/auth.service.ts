@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AuthData } from '../interfaces/auth-data';
+import { RegistData } from '../interfaces/regist-data';
 
 
 @Injectable({
@@ -9,7 +10,7 @@ import { AuthData } from '../interfaces/auth-data';
 export class AuthService {
   constructor(private http: HttpClient) { }
   
-  CreateUser(email: string, password: string){  
+  LoginUser(email: string, password: string){  
     const authData: AuthData = {email: email, password: password} 
     
     this.http.post("http://localhost:5000/login", authData , { observe: 'response'}
@@ -29,24 +30,13 @@ export class AuthService {
   })  
   }
 
- 
-
-//   private setSession(authResult: { expiresIn: any; idToken: string; }) {
-//     const expiresAt = moment().add(authResult.expiresIn,'second');
-
-//     localStorage.setItem('id_token', authResult.idToken);
-//     localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()) );
-// }   
-
- 
-
-  // login(user: any) {
-  //   return this.http.post('http://localhost:5000/login', user,
-    
-    
-    
-  //   );
-  // }
+registerUser(username : string ,email: string, password: string){
+  const regData: RegistData = {username: username ,  email: email, password: password} 
+  this.http.post("http://localhost:5000/register", regData , { observe: 'response'}
+  ).subscribe((response)=>{
+      console.log(response); 
+  })
+}
 
 }
 

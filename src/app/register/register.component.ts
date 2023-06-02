@@ -12,20 +12,22 @@ export class RegisterComponent {
   registerForm : FormGroup
   constructor(public authService: AuthService){
    this.registerForm = new FormGroup({
-    Username : new FormControl(null, [Validators.required]),
+    username : new FormControl(null, [Validators.required]),
     
      email: new FormControl(null, [Validators.required, Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)]),
     password : new FormControl(null, [Validators.required , Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=(.*[`!@#$%\^&*\-_=\+'/\.,]){1}).{8,}$/)])
     })
   }
+  
   submitRegisterForm(){
    console.log(this.registerForm);
    
   }
-  login(form: FormGroup){  
+  register(form: FormGroup){  
     if(form.invalid){  
-      return;  
+      console.log('error');
+       ;  
     }  
- 
+    this.authService.registerUser(form.value.username,form.value.email, form.value.password);  
   }  
 }

@@ -11,12 +11,12 @@
           type="text"
            id="form3Example1" 
            class="form-control"  
-           placeholder="Username"
-           name="Username"
-           formControlName="Username"
+           placeholder="username"
+           name="username"
+           formControlName="username"
            />
-           <div class="text-danger" *ngIf="registerForm.controls['Username'].touched && registerForm.controls['Username'].invalid " >
-            <span *ngIf="registerForm.controls['Username']?.errors?.['required']">This field is required</span>
+           <div class="text-danger" *ngIf="registerForm.controls['username'].touched && registerForm.controls['username'].invalid " >
+            <span *ngIf="registerForm.controls['username']?.errors?.['required']">This field is required</span>
            </div>
                  
         </div>
@@ -26,7 +26,7 @@
     
   
     <!-- Email input -->
-    <div class="form-outline mb-4">
+    <div  class="form-outline mb-4">
       <input type="email" id="form3Example3" class="form-control" placeholder="Email address" 
       name="email"
       formControlName="email"
@@ -55,7 +55,7 @@
     </div>
   
     <!-- Submit button -->
-    <button (click)="login(registerForm)"   type="submit" class="btn btn-primary btn-block mb-4" [disabled]="registerForm.invalid">Sign up</button>
+    <button (click)="register(registerForm)"   type="submit" class="btn btn-primary btn-block mb-4" [disabled]="registerForm.invalid">Sign up</button>
   
     <!-- Register buttons -->
     <div class="text-center">

@@ -19,7 +19,7 @@ export class LoginComponent  {
     if(form.invalid){  
       return;  
     }  
-    this.authService.CreateUser(form.value.email, form.value.password);  
+    this.authService.LoginUser(form.value.email, form.value.password);  
   }
   
 
