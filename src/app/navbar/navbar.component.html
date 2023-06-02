@@ -28,10 +28,10 @@
             <a href="login"  class="btn btn-primary" type="submit">Log in</a>
             &nbsp;&nbsp;&nbsp;
             <a  href="register" class="btn btn-primary" type="submit">Sign up</a>
-            <!-- <div *ngIf="localStorage !== null" >
+            <div *ngIf="localStorage.getItem('token')  " >
               &nbsp;&nbsp;&nbsp;
-            <a  href="register" class="btn btn-primary" type="submit">Log out</a>   
-            </div> -->
+            <a  (click)="onLogout()" href="register" class="btn btn-primary" type="submit">Log out</a>   
+            </div>
 
         </form>
       </div>

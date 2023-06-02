@@ -8,8 +8,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-  constructor(public authService: AuthService ,private route : Router){
+  localStorage !: Storage;
+  constructor(public authService: AuthService ,private route : Router ){
+   this.localStorage = window.localStorage;
   } 
+
   onLogout() {
   
     // localStorage.removeItem('token');
