@@ -23,7 +23,10 @@ export class UserBooksApiService {
     return this.http.get(this.path+`/status/${userId}/${bookId}`)
   }
   getBookByStatus(userId:string,status:string){
-    return this.http.get(this.path+`/${status}/${userId}`)
+   return this.http.get(this.path+`/${status}/${userId}`)
+  }
 
+  getAvgRate(bookId:string){
+    return this.http.get(`http://localhost:5000/review/${bookId}/avgRate`)
   }
 }

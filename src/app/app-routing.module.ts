@@ -12,11 +12,6 @@ import { CategoryBooksComponent } from './category-books/category-books.componen
 import { CategoryComponent } from './category/category.component';
 import { AdminUpdateCategoryComponent } from './admin-update-category/admin-update-category.component';
 
-
-
-
-
-
 const routes: Routes = [
   {
     path:"books",

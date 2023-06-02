@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container ">
     <h3 class="text-center text-primary mt-5">All Book</h3>
-    <table class="table table-striped">
+    <table class="table table-striped align-middle">
 
         <thead>
           <tr >
@@ -21,16 +21,16 @@
              </td>
 
             <td>{{book?.authorId?.firstName}}</td>
-            <!-- <td>{{book?.review?.rating}}</td> -->
-            <td></td>
+            <td>{{ this.avgRateVariable[i]}}</td>
+
+            <td>{{ratingBooks[i]}}</td>
             <td>
 
               <form  [formGroup]="statusForm">      
                 <select 
-                class="form-select" 
+                class="form-select w-50" 
                 aria-label="Default select example"
                  #status name="status"
-                [ngModel]="statusBooks[i]"
                 formControlName="status"
                  (change)=" changeStatus(status.value,book._id)">
 
