@@ -18,12 +18,12 @@ export class UserBooksStatusComponent {
       status: new FormControl()
   });
   this.statusparam=recive.snapshot.params['status'];
-    this.bookService.getBookByStatus("6470a42e6b2d1b0e0a2a85c0",this.statusparam).subscribe(
+    this.bookService.getBookByStatus(this.statusparam).subscribe(
       (value)=>{
         this.booksList=value
 
       for(let i=0; i <this.booksList.length;i++){
-        this.bookService.getStatusOfUserBook('6470a42e6b2d1b0e0a2a85c0',this.booksList[i]._id).subscribe((value:any)=>{
+        this.bookService.getStatusOfUserBook(this.booksList[i]._id).subscribe((value:any)=>{
            this.statusBooks[i]= value.status
         });
       }
@@ -33,7 +33,7 @@ export class UserBooksStatusComponent {
   }
 
   changeStatus(status:string,bookId:string){
-    this.bookService.AddStatus(status,'6470a42e6b2d1b0e0a2a85c0',bookId).subscribe((value)=>console.log(value))
+    this.bookService.AddStatus(status,bookId).subscribe((value)=>console.log(value))
    
   }
 

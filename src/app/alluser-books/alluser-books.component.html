@@ -22,7 +22,6 @@
 
             <td>{{book?.authorId?.firstName}}</td>
             <td>{{ this.avgRateVariable[i]}}</td>
-
             <td>{{ratingBooks[i]}}</td>
             <td>
 
@@ -33,7 +32,7 @@
                  #status name="status"
                 formControlName="status"
                  (change)=" changeStatus(status.value,book._id)">
-
+                 <option disabled>{{statusBooks[i]}}</option>
                   <option  value="read">read</option>
                   <option  value="want to read">want to read</option>
                   <option  value="reading">reading</option>

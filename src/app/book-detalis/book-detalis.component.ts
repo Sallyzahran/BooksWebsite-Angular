@@ -16,7 +16,7 @@ rating: number | undefined;
   review: string | undefined;
 
 constructor(private bookservice:BookApiService,private recive:ActivatedRoute,private router: Router){
-
+console.log(recive.snapshot.params['id'])
   this.bookservice.getBook(recive.snapshot.params['id']).subscribe((value)=>this.book=value)
   this.avgRate()
 }

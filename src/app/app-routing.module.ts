@@ -1,3 +1,4 @@
+import { UserBooksComponent } from './user-books/user-books.component';
 import { HomeComponent } from './home/home.component';
 import { BookDetalisComponent } from './book-detalis/book-detalis.component';
 import { UserBooksStatusComponent } from './user-books-status/user-books-status.component';
@@ -28,6 +29,10 @@ const routes: Routes = [
     component:AllBooksComponent
   },
   {
+    path:"book-list",
+    component:UserBooksComponent
+  },
+  {
     path:"addbook",
     component:AddBookComponent
   },
@@ -40,7 +45,7 @@ const routes: Routes = [
     component:AlluserBooksComponent
   },
   {
-    path:"mybook/:status/:userId",
+    path:"mybook/:status",
     component:UserBooksStatusComponent
   },
   {

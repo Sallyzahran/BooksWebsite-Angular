@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component ,OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
@@ -11,9 +12,17 @@ import { AuthService } from '../services/auth.service';
 
 export class LoginComponent  {
  
+loclStorage!:Storage
 
-
-  constructor(public authService: AuthService){} 
+  constructor(public authService: AuthService,private router:Router){
+    this.loclStorage=window.localStorage
+    if(this.loclStorage.getItem('token')){
+      if(this.loclStorage.getItem('isAdmin')){
+         this.router.navigate(['books'])
+        }
+      this.router.navigate([''])
+    }
+  } 
  
   login(form: NgForm){  
     if(form.invalid){  
@@ -25,8 +34,11 @@ export class LoginComponent  {
 
  
   whenSubmit(form :NgForm){
-    console.log(form);
-    
+    if(this.loclStorage.getItem('isAdmin')){
+      this.router.navigate(['books'])
+     }
+   this.router.navigate([''])
+ 
   }
 
 }

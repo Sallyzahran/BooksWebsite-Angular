@@ -21,12 +21,6 @@ export class AlluserBooksComponent {
     this.statusForm = new FormGroup({
       status: new FormControl('')
   });
-
-      // for(let i=0; i <this.booksList.length;i++){
-      //   this.bookService.getStatusOfUserBook('6470a42e6b2d1b0e0a2a85c0',this.booksList[i]._id).subscribe((value:any)=>{
-      //      this.statusBooks[i]= value.status
-      //   });
-      // }
                             
   }
 async  ngOnInit() {
@@ -34,42 +28,25 @@ async  ngOnInit() {
     (value)=>{
       this.booksList=value
     for(let i=0; i <this.booksList.length;i++){
-      this.bookService.getStatusOfUserBook('6470a42e6b2d1b0e0a2a85c0',this.booksList[i]._id).subscribe((user:any)=>{
-        // this.statusBooks[i]= user.status
+      this.bookService.getStatusOfUserBook(this.booksList[i]._id).subscribe((user:any)=>{
+        this.statusBooks[i]= user.status
          this.ratingBooks[i]=user.rating
-         this.statusForm?.get('status')?.setValue(user.status);
+        //  this.statusForm?.get('status')?.setValue(user.status);
 
         this.bookService.getAvgRate(this.booksList[i]._id).subscribe((value:any)=> this.avgRateVariable[i]=value.avgRate);
       });
     }
-    console.log(this.statusBooks)
+    // console.log(this.statusBooks)
     })
   
 }
   changeStatus(status:string,bookId:string){
     console.log(status,bookId)
-    this.bookService.AddStatus(status,'6470a42e6b2d1b0e0a2a85c0',bookId).subscribe((value)=>console.log(value))
+    this.bookService.AddStatus(status,bookId).subscribe((value)=>console.log(value))
    
   }
 
-  // avgRate(book:any){
-  //   // if(book?.reviews?.length){
-  //   //   let count:number=0;
-  //   //   let sum:number=0
-  //   //   for(let i =0 ;i<book?.reviews?.length;i++){
-  //   //     if(book?.reviews[i].rating){
-  //   //       sum+=book.reviews[i].rating;
-  //   //       count++;
-  //   //     }
-  //   //     this.avgRateVariable[i]=sum/count;
 
-  //   //   }
-  
-  //   // }
-  //   for(let i  =0 ;i <this.booksList.length;i++){
-      
-  //   }
-  // }
   }
 
 
