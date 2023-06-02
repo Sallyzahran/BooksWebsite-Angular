@@ -26,7 +26,7 @@ export class AuthorApiService {
   authorUpdated = this.authUpdated.asObservable();
 
   getBooks(){
-    return this.http.get(`http://localhost:5000/book/`);
+    return this.http.get(`http://localhost:5000/book/`,{headers:this.headers});
   }
 
   getAllAuthors () {
@@ -35,13 +35,13 @@ export class AuthorApiService {
 
   getAuthorById(id : number) {
    
-    return this.http.get(`http://localhost:5000/author/${id}`);
+    return this.http.get(`http://localhost:5000/author/${id}`,{headers:this.headers});
   
   }
 
   addAuthor(body : any) {
     if(this.localStorage.getItem("isAdmin"))
-    return this.http.post(`http://localhost:5000/author/`, body);
+    return this.http.post(`http://localhost:5000/author/`, body,{headers:this.headers});
     else{
       this.router.navigate(['**']);
       return this.authUpdated
@@ -49,14 +49,24 @@ export class AuthorApiService {
   }
 
   updateAuthor(id: number, body : any) {
-    return this.http.put(`http://localhost:5000/author/${id}`, body);
+    if(this.localStorage.getItem("isAdmin"))
+    return this.http.put(`http://localhost:5000/author/${id}`, body,{headers:this.headers});
+    else{
+      this.router.navigate(['**']);
+      return this.authUpdated
+    }
   }
 
   deleteAuthor(id : number) {
-    return this.http.delete(`http://localhost:5000/author/${id}`);
+    if(this.localStorage.getItem("isAdmin"))
+    return this.http.delete(`http://localhost:5000/author/${id}`,{headers:this.headers});
+    else{
+      this.router.navigate(['**']);
+      return this.authUpdated
+    }
   }
 
   getBook(id : number) {
-    return this.http.get(`http://localhost:5000/author/${id}/book`);
+    return this.http.get(`http://localhost:5000/author/${id}/book`,{headers:this.headers});
   }
 }
