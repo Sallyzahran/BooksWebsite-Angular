@@ -5,7 +5,6 @@ import { UpdateBookComponent } from './update-book/update-book.component';
 import { AddBookComponent } from './add-book/add-book.component';
 import { AllBooksComponent } from './all-books/all-books.component';
 import { Component, NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
 import { AdminAddCategoryComponent } from './admin-add-category/admin-add-category.component';
 import { AdminCategoryComponent } from './admin-category/admin-category.component';
 import { CategoryBooksComponent } from './category-books/category-books.component';
@@ -17,6 +16,9 @@ import { AuthorListComponent } from './author-list/author-list.component';
 import { AuthorAdminComponent } from './author-admin/author-admin.component';
 import { AddAuthorComponent } from './add-author/add-author.component';
 import { EditAuthorComponent } from './edit-author/edit-author.component';
+import { RouterModule, Routes } from '@angular/router';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   {
@@ -95,7 +97,17 @@ const routes: Routes = [
     path: "edit-author/:id",
     component: EditAuthorComponent
   },
+
+   {
+   path : "login",
+   component : LoginComponent
  
+  },
+  {
+    path : "register",
+    component : RegisterComponent
+  
+   },
 
 ];
 
