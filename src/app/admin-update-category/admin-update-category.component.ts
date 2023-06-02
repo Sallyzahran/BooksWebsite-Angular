@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { FormBuilder,FormControl,FormGroup, Validators } from '@angular/forms';
 import { Category } from '../interfaces/category';
 import { CategoryService } from '../services/category.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute ,Router} from '@angular/router';
+
 @Component({
   selector: 'app-admin-update-category',
   templateUrl: './admin-update-category.component.html',
@@ -12,7 +13,7 @@ export class AdminUpdateCategoryComponent {
 
 
 name !:string
-  constructor(private formBuilder:FormBuilder , private categoryService:CategoryService, private router:ActivatedRoute   ){}
+  constructor(private formBuilder:FormBuilder,private route:Router , private categoryService:CategoryService, private router:ActivatedRoute   ){}
   
   formValue = new FormGroup({
 
@@ -27,7 +28,7 @@ ngOnInit(): void{
 
     this.formValue = new FormGroup({
 
-    name: new FormControl(res['name'])
+    name: new FormControl(res.name)
   });
 
 
@@ -39,10 +40,14 @@ updateCategory(){
 
 this.categoryService.UpdateCategory(this.router.snapshot.params['id'],this.formValue.value).subscribe((res)=>{
   console.log(res)
+  this.route.navigate(['/AdminCategory']);
+
 })
 
 }
   
 
 }
+
+
 

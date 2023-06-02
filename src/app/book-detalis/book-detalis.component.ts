@@ -24,7 +24,6 @@ ngOnInit(): void {
   const bookId = this.recive.snapshot.params['id'];
   this.bookservice.getBook(bookId).subscribe(book => {
     this.book = book;
-    // Check if the state contains rating and comment parameters
     const state = window.history.state;
     if (state && state.rating && state.review) {
       this.rating = state.rating;
@@ -47,3 +46,25 @@ addreview( id:any){
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

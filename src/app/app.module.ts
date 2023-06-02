@@ -19,6 +19,7 @@ import { AdminAddCategoryComponent } from './admin-add-category/admin-add-catego
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminUpdateCategoryComponent } from './admin-update-category/admin-update-category.component';
 import { AddreviewComponent } from './addreview/addreview.component';
+import { StarRatingPipe } from './star-rating.pipe';
 
 
 
@@ -39,6 +40,7 @@ import { AddreviewComponent } from './addreview/addreview.component';
     AdminAddCategoryComponent,
     AdminUpdateCategoryComponent,
     AddreviewComponent,
+    StarRatingPipe,
    
    
   ],
