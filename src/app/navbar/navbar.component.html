@@ -53,14 +53,14 @@
 
       <form class="d-flex" style="padding-left: 1000px;">
         <div *ngIf="!isLoggedIn()">
-          <a routerLink="login" class="btn btn-primary" type="submit">Log in</a>
+          <a routerLink="login" class="btn btn-light" type="button">Log in</a>
           &nbsp;&nbsp;&nbsp;
-          <a routerLink="register" class="btn btn-primary" type="submit">Sign up</a>
+          <a routerLink="register" class="btn btn-light" type="button">Sign up</a>
         </div>
 
         <div *ngIf="isLoggedIn()">
           &nbsp;&nbsp;&nbsp;
-          <a (click)="onLogout()" routerLink="login" class="btn btn-primary" type="submit">Log out</a>
+          <a (click)="onLogout()" routerLink="login" class="btn btn-light" type="button">Log out</a>
         </div>
 
       </form>
