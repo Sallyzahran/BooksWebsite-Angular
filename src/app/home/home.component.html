@@ -1,3 +1,60 @@
 <div class="header">
 
 </div>
+
+<div>
+
+
+<div class="row">
+
+    <h1 style="margin-top: 80px; text-align: center;">Popular Books</h1>
+
+    <div class="col-md-3 col-sm-12 col-lg-3 mx-auto my-2 d-inline-block" *ngFor="let book of bookList">
+
+        <app-book-div [book]="book"></app-book-div>
+    </div>
+    
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="categories" style="margin-top: 200px;">
+  <button   class="btn btn-dark" routerLink="allcategories" style="margin-left: 1250px; margin-top: 400px;">See More</button>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="row" style="margin-top: 70px;">
+
+    <h1 style="margin-top: 80px; text-align: center;">Popular Authers</h1>
+
+
+<div class="col-md-3 col-sm-12 col-lg-3 mx-auto my-2 d-inline-block" *ngFor="let author of authorList">
+    <div class="card" style="height: 300px; width: 300px;">
+      <img [src]='"http://localhost:5000/assets/"+author.image' class="card-img-top" height="400px">
+      <div class="card-body">
+        <div style="text-align: center;">
+          <h5>{{author.firstName}} {{author.lastName}}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+

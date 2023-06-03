@@ -1,13 +1,27 @@
 
 
 
-<div class="row">
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">{{categoryNames.name}}</h5>
-        <a href="#" routerLink="/app-category-books/{{categoryNames._id}}" class="btn btn-dark">See Details</a>
+
+
+
+<div class="author" style="margin-top: 50px;">
+
+  <div class="container ">
+  
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col">
+          <div class="card" style="height: 300px; width: 300px;">
+              <img [src]='' class="card-img-top" height="400px">
+              <div class="card-body h-100">
+              <div style="text-align: center;">
+                <h5 class="card-title">{{categoryNames.name}}</h5>
+
+                <a href="#" routerLink="/app-category-books/{{categoryNames._id}}" class="btn btn-dark">See Details</a>
+              </div>
+              </div>
+          </div>
       </div>
-    </div>
   </div>
-</div>
+  </div>
+  
+  </div>

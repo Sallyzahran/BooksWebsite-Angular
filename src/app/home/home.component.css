@@ -1,5 +1,14 @@
 .header{
 
     background-image: url('../../Frame.png');
+    height: 1000px;
+    padding-right: 200px;
+}
+
+
+.categories{
+
+    background-image: url('../../categories.png');
     height: 800px;
+
 }

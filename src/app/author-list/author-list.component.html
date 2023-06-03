@@ -4,8 +4,8 @@
 
 <div class="row row-cols-1 row-cols-md-3 g-4">
     <div class="col" *ngFor="let auth of author">
-        <div class="card">
-            <img [src]='"http://localhost:5000/assets/"+auth.image' class="card-img-top" height="200px">
+        <div class="card" style="height: 300px; width: 300px;">
+            <img [src]='"http://localhost:5000/assets/"+auth.image' class="card-img-top" height="400px">
             <div class="card-body h-100">
             <div style="text-align: center;">
                 <h5><button (click)="displayDetails(auth._id)" style="border: none; background: none;">{{auth.firstName}} {{auth.lastName}}</button></h5>
