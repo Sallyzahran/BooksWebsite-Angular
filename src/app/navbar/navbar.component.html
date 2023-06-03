@@ -1,0 +1,72 @@
+<nav class="navbar navbar-expand-lg navbar-dark ">
+  <div class="container-fluid">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02"
+      aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor02">
+      <div *ngIf="isLoggedIn()">
+
+
+        <div *ngIf="isAdmin()">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" routerLink="books">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="AdminCategory">Categories</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="books">Books</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="author-admin">Authors</a>
+            </li>
+
+          </ul>
+        </div>
+
+        <div *ngIf="!isAdmin()" >
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" routerLink="" >Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="allcategories">Categories</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="book-list">Books</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="author-list">Authors</a>
+            </li>
+
+          </ul>
+        </div>
+
+
+      </div>
+
+
+
+      <form class="d-flex" style="padding-left: 1000px;">
+        <div *ngIf="!isLoggedIn()">
+          <div style="margin-left: 545px;">
+            <a routerLink="login" class="btn btn-light" sty type="button">Log in</a>
+            &nbsp;&nbsp;&nbsp;
+            <a routerLink="register" class="btn btn-light" type="button">Sign up</a>
+          </div>
+         
+        </div>
+
+        <div *ngIf="isLoggedIn()">
+          &nbsp;&nbsp;&nbsp;
+          <a (click)="onLogout()" routerLink="login" class="btn btn-light" type="button">Log out</a>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</nav>

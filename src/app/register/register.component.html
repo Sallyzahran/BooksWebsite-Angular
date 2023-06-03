@@ -1,0 +1,61 @@
+
+<form [formGroup]="registerForm" (ngSubmit)="submitRegisterForm()">
+    <h1>Register Now</h1>
+    <!-- 2 column grid layout with text inputs for the first and last names -->
+    <div class="row mb-4">
+        
+      <div class="col">
+        
+        <div class="form-outline">
+          <input 
+          type="text"
+           id="form3Example1" 
+           class="form-control"  
+           placeholder="username"
+           name="username"
+           formControlName="username"
+           />
+           <div class="text-danger" *ngIf="registerForm.controls['username'].touched && registerForm.controls['username'].invalid " >
+            <span *ngIf="registerForm.controls['username']?.errors?.['required']">This field is required</span>
+           </div>
+                 
+        </div>
+      </div>
+
+      </div>
+    
+  
+    <!-- Email input -->
+    <div  class="form-outline mb-4">
+      <input type="email" id="form3Example3" class="form-control" placeholder="Email address" 
+      name="email"
+      formControlName="email"
+      />
+      <div  class="text-danger" *ngIf="registerForm.controls['email'].touched && registerForm.controls['email'].invalid " >
+        <span *ngIf="registerForm.controls['email']?.errors?.['required']">This field is required</span>
+        <span *ngIf="registerForm.controls['email']?.errors?.['pattern']">This email is invalid</span>
+      </div>
+    </div>
+  
+    <!-- Password input -->
+    <div class="form-outline mb-4">
+      <input type="password" id="form3Example4" class="form-control" placeholder="Password"
+      name="password"
+      formControlName="password"
+      />
+      <div class="text-danger" *ngIf="registerForm.controls['password'].touched && registerForm.controls['password'].invalid " >
+        <span *ngIf="registerForm.controls['password']?.errors?.['required']">This field is required</span>
+        <span *ngIf="registerForm.controls['password']?.errors?.['pattern']">
+          password must have at least 8 characters , contains at least one lowercase ,
+           one uppercase ,
+            one digit 
+          and one special character
+        </span>
+      </div>
+    </div>
+  
+    <!-- Submit button -->
+    <button (click)="register(registerForm)"   type="submit" class="btn btn-primary btn-block mb-4" [disabled]="registerForm.invalid">Sign up</button>
+
+  </form>
+

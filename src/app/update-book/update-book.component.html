@@ -1,0 +1,64 @@
+<div class=" w-50 mx-auto ">
+    <div class="">
+        <h1 class="text-primary text-center">Update Book </h1>
+    </div>
+    <form class="border p-4" [formGroup]="updateBookForm" (ngSubmit)="updateBook()" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Title</label>
+
+            <input type="name" class="form-control"
+             id="exampleInputname1" aria-describedby="nameHelp" placeholder="Enter title"
+            formControlName="title"
+            name="title"
+            [ngModel]="book?.title"
+            [ngClass]=" {'border border-danger ' : updateBookForm.controls['title'].touched && updateBookForm.controls['title'].invalid}"
+            >
+            <div
+            *ngIf="updateBookForm.controls['title'].touched
+            && updateBookForm.controls['title'].invalid">
+
+              <small id="nameHelp" class="form-text text-danger "
+               *ngIf="
+
+               updateBookForm.controls['title'].errors?.['required']">
+                    Title is required
+              </small>
+
+            </div>
+           
+
+          </div>
+          <label class="my-3" for="category ">Category</label>
+
+          <select class="form-select" aria-label="Default select example" name="categoryId" formControlName="categoryId"
+          [(ngModel)]="selectedCategoryId._id"
+          >
+            <ng-container *ngFor="let category of categories">
+              <option [value]="category._id">{{category.name}}</option>
+            </ng-container>
+          </select>
+
+        
+          
+          <label class="my-3" for="author ">Author</label>
+          <select class="form-select" aria-label="Default select example" name="authorId" formControlName="authorId"
+          [(ngModel)]="selectedAuthorId._id"
+          >
+            <ng-container *ngFor="let author of authors">
+              <option [value]="author._id">{{author.firstName}}</option>
+            </ng-container>
+          </select>
+
+          <div class="mb-3">
+            <img [src]="'http://localhost:5000/assets/' + book?.image" alt="" width="100" height="100" *ngIf="book?.image">
+            <input class="form-control" type="file" id="formFile" name="image" formControlName="image" (change)="onFileSelected($event)"> 
+          </div>
+      
+        <button type="submit" class="btn btn-primary w-100">Submit</button>
+        <br>
+
+        <p *ngIf="errorMessage" class="alert-danger alert ">{{errorMessage}}  </p>  
+
+      </form>
+</div>
+

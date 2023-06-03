@@ -1,0 +1,31 @@
+       <div class="container">
+        <h3 class="text-center text-dark mt-5">Categories</h3>
+        <a routerLink="/addCategory" ><i class="fa fa-plus text-dark"></i></a>
+        <table class="table table-striped">
+    
+            <thead>
+              <tr >
+                <th scope="col">ID</th>
+                <th scope="col">name</th>
+           
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let category of categories; let i=index" >
+                <th scope="row">{{i+1}}</th>
+                <td>{{category.name}}</td>
+          
+                <td><i class="fa fa-edit mx-3" (click)="editCategory(category._id)"></i>
+                  <td> <a (click)="deleteCategory(category._id)">
+                    <i class="fa fa-trash"></i> 
+                   </a> </td>
+              </tr>
+            </tbody>
+          </table>
+        
+    
+    </div>
+
+
+

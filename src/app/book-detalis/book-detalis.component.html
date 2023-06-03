@@ -1,0 +1,76 @@
+
+
+
+
+  <div class="author" style="margin-top: 50px;">
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <img [src]='"http://localhost:5000/assets/"+book?.image' class="img-fluid rounded" style="height: 640px; width: 500px; " >
+      </div>
+      <div class="col-md-6">
+        <h3 class="card-title">{{book.title}}</h3>
+        <p> <a  style="text-decoration: none; color: black;" [routerLink]="['/author-details',book.authorId?._id]">By {{book.authorId?.firstName}}</a></p>
+        <p> <a   style="text-decoration: none; color: black;" [routerLink]="['/app-category-books',book.categoryId?._id]"> {{book.categoryId?.name}}</a></p>
+
+
+        <div class=" col-md-3 mt-5">
+          <form  [formGroup]="statusForm">      
+            <select 
+            class="form-select w-100" 
+            aria-label="Default select example"
+             #status name="status"
+            formControlName="status"
+             (change)=" changeStatus(status.value,book._id)">
+             <option disabled>{{status1}}</option>
+              <option  value="read">read</option>
+              <option  value="want to read">want to read</option>
+              <option  value="reading">reading</option>
+            </select>
+          </form>
+
+          <br> <br>
+          <i class="fa fa-edit mx-3" (click)="addreview(book?._id)">Add review</i>
+
+          <div class="row px-3 py-2" style="width: 300px">
+            <br> <br>
+
+              <div *ngIf="book?.reviews?.length">
+                <div class="card mb-3  py-3" style="max-width: 100%;">
+
+                <div class="row g-0" *ngFor="let review of book.reviews">
+                  <h3>reviews</h3>
+
+                <div class="col-md-8">
+                    <div class="card-body">
+                    <h5 class="card-title"> {{review.review}}</h5>
+                    <br>
+                    <p> {{ review.rating | starRating :5 }}</p>
+      
+                    </div>
+                </div>
+                <hr >
+                </div>
+                </div>
+            </div>
+        </div>
+        </div>
+      </div>
+
+      
+    </div>
+  </div>
+
+
+
+
+
+  </div>
+
+
+
+
+
+

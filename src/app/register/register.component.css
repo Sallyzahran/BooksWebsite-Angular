@@ -1,0 +1,21 @@
+
+form{
+    
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    /* justify-content: center; */
+     margin: auto;
+     border: 1px solid black;
+     padding: 30px;
+     border-radius: 3%;
+    margin-top: 100px;
+   
+  
+} 
+
+h1{
+    margin: auto;
+    margin-bottom: 10px;
+  
+}

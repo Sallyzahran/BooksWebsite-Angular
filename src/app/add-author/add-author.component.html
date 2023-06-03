@@ -1,0 +1,33 @@
+<div style="margin: auto; width: 50%;">
+    
+<h2 style="font-family: 'Courier New', Courier, monospace; font-weight: bold; text-align: center;">Add New Author</h2>
+<form class="add-form" [formGroup]="addForm" (ngSubmit)="addAuthor()" enctype="multipart/form-data" >
+    <div class="mb-3">
+    <label for="image" class="form-label">Image</label>
+    <input formControlName="image" type="file" class="form-control" id="image" name="image" aria-describedby="image" (change)="onFileSelected($event)">
+    </div>
+    <div class="mb-3">
+    <label for="firstName" class="form-label">First Name</label>
+    <input formControlName="firstName" type="text" class="form-control" id="firstName" name="firstName">
+    <div class="form-text" *ngIf="addForm.controls['firstName'].touched && addForm.controls['firstName'].invalid">
+        <span *ngIf="addForm.controls['firstName'].errors?.['required']" class="text-danger"> First name is required</span>
+        <span *ngIf="addForm.controls['firstName'].errors?.['pattern']" class="text-danger"> First name should include only characters</span>
+    </div>
+    </div>
+    <div class="mb-3">
+        <label for="lastName" class="form-label">Last Name</label>
+        <input formControlName="lastName" type="text" class="form-control" id="lastName" name="lastName">
+        <div class="form-text" *ngIf="addForm.controls['lastName'].touched && addForm.controls['lastName'].invalid">
+            <span *ngIf="addForm.controls['lastName'].errors?.['required']" class="text-danger"> Last name is required</span>
+            <span *ngIf="addForm.controls['lastName'].errors?.['pattern']" class="text-danger"> Last name should include only characters</span>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="dateOfBirth" class="form-label">Date of Birth</label>
+        <input formControlName="dateOfBirth" type="date" class="form-control" id="dateOfBirth" name="dateOfBirth">
+    </div>
+    <button type="submit" class="btn btn-primary form-control">Add</button>
+    
+</form>
+</div>
+<h4 style="text-align: center; font-family: 'Courier New', Courier, monospace; font-weight: bold; margin-top: 5px;" class="text-success">{{message?.message}}</h4>
