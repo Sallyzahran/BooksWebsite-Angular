@@ -1,58 +1,62 @@
-<div class="container ">
 
-<div class="row">
-<div class="card mb-3" style="max-width: 1000px; max-height: 600px; border: none;">
-    <div class="row g-0">
-    <div class="col-md-3">
-        <img [src]='"http://localhost:5000/assets/"+selectedAuthor.image' class="img-fluid rounded" style="height: 200px; width: 300px; ">
+
+<div class="author" style="margin-top: 50px;">
+
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+        <img [src]='"http://localhost:5000/assets/"+selectedAuthor.image' >
     </div>
-    <div class="col-md-9">
-        <div class="card-body">
-            <br>
-        <h3 class="card-title">{{selectedAuthor.firstName}} {{selectedAuthor.lastName}}</h3>
+    <div class="col-md-6">
+       <h3 class="card-title">{{selectedAuthor.firstName}} {{selectedAuthor.lastName}}</h3>
         <p class="card-text"><span class="txt">{{selectedAuthor.dateOfBirth | date : 'MMMM d, y'}} </span></p>
-        <p class="icon"><fa-icon [icon]="faFeatherPointed"></fa-icon></p>  
-        </div>
-    </div>
-    </div>
-</div>
-</div>
-<!-- <div class="row px-3 py-3" style="border: 1px solid black;"> -->
-<div class="row px-3 py-3">
-    <h3>Author's Books</h3>
-    <div class="card mb-3  py-3" style="max-width: 100%;">
-        <div class="row g-0" *ngFor="let book of books; let i =index">
-        <div class="col-md-2">
-            <img width="100%" height="100%" [src]='"http://localhost:5000/assets/"+book.image' class="rounded" alt="...">
-        </div>
-        <div class="col-md-8">
-            <div class="card-body">
-            <h5 class="card-title"> {{book.title}}</h5>
-            <br>
-            <p>
-           &nbsp;&nbsp;&nbsp;&nbsp;
-            {{ this.avgRateVariable[i]|starRating:5}}
 
-            <span>{{avgRateVariable[i]}} </span>
-        </p>
+
+        <div class="row px-3 py-3" >
+            <div class="row px-3 py-3">
+                <h3>Author's Books</h3>
+                <div class="card mb-3  py-3" style="max-width: 100%;">
+                    <div class="row g-0" *ngFor="let book of books; let i =index">
+                    <div class="col-md-2">
+                        <img width="100%" height="100%" [src]='"http://localhost:5000/assets/"+book.image' class="rounded" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                        <h5 class="card-title"> {{book.title}}</h5>
+                        <br>
+                        <p>
+                       &nbsp;&nbsp;&nbsp;&nbsp;
+                        {{ this.avgRateVariable[i]|starRating:5}}
+            
+                        <span>{{avgRateVariable[i]}} </span>
+                    </p>
+                        </div>
+                    </div>
+                    <div class="col-md-2 mt-5">
+                        <form  [formGroup]="statusForm">      
+                            <select 
+                            class="form-select w-50" 
+                            aria-label="Default select example"
+                             #status name="status"
+                            formControlName="status">
+                             <option disabled>{{statusBooks[i]}}</option>
+                              <option  value="read">read</option>
+                              <option  value="want to read">want to read</option>
+                              <option  value="reading">reading</option>
+                            </select>
+                          </form>
+                    </div>
+                    <hr>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="col-md-2 mt-5">
-            <form  [formGroup]="statusForm">      
-                <select 
-                class="form-select w-50" 
-                aria-label="Default select example"
-                 #status name="status"
-                formControlName="status">
-                 <option disabled>{{statusBooks[i]}}</option>
-                  <option  value="read">read</option>
-                  <option  value="want to read">want to read</option>
-                  <option  value="reading">reading</option>
-                </select>
-              </form>
-        </div>
-        <hr>
-        </div>
+            </div>
     </div>
+  </div>
 </div>
+
 </div>
