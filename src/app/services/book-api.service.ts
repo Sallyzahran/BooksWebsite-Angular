@@ -56,7 +56,7 @@ deleteBook(id:string){
 }
 //delete userId From Uri add token to header :D
 getUserBook(userId:string){
-return this.http.get(`http://localhost:5000/mybook/${userId}`,{headers:this.headers})
+return this.http.get(`http://localhost:5000/mybook/`,{headers:this.headers})
 }
 
 

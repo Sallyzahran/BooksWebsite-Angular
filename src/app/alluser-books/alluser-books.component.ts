@@ -31,7 +31,6 @@ async  ngOnInit() {
       this.bookService.getStatusOfUserBook(this.booksList[i]._id).subscribe((user:any)=>{
         this.statusBooks[i]= user.status
          this.ratingBooks[i]=user.rating
-        //  this.statusForm?.get('status')?.setValue(user.status);
 
         this.bookService.getAvgRate(this.booksList[i]._id).subscribe((value:any)=> this.avgRateVariable[i]=value.avgRate);
       });

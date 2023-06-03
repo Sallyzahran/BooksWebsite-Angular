@@ -1,3 +1,5 @@
+import { CategoryService } from './../services/category.service';
+import { AuthorApiService } from './../services/author-api.service';
 import { BookInterface } from './../interfaces/book-interface';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BookApiService } from './../services/book-api.service';
@@ -22,7 +24,8 @@ export class UpdateBookComponent {
   selectedAuthorId!:string
   title!:string
 
-  constructor(private bookService:BookApiService,private recive:ActivatedRoute , private router:Router){
+  constructor(private bookService:BookApiService,private recive:ActivatedRoute , private router:Router,
+    private authorService:AuthorApiService,private categoryService:CategoryService){
 
 
 
@@ -39,12 +42,12 @@ export class UpdateBookComponent {
 
    ngOnInit() {
     this.bookService.getBook(this.id).subscribe((value:BookInterface)=>this.book=value)
-    this.bookService.getCategories().subscribe((value)=>{
+    this.categoryService.getCategories().subscribe((value)=>{
       this.categories=value
-   this.selectedCategoryId= this.categories?.find((category:any) => category._id == this.book.categoryId?._id)._id;
+   this.selectedCategoryId= this.categories?.find((category:any) => category._id == this.book?.categoryId?._id)?._id;
     }
     )
-    this.bookService.getAuthors().subscribe((value)=>{
+   this.authorService.getAllAuthors().subscribe((value)=>{
       this.authors=value
       this.selectedAuthorId= this.authors?.find((author:any) => author._id == this.book.authorId?._id)._id;
     })

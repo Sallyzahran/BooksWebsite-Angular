@@ -38,5 +38,7 @@ export class AddAuthorComponent {
       formData.append('image', this.selectedFile);
     }
     this.authorApi.addAuthor(formData).subscribe((value)=>this.message=value)
+    this.router.navigate(['/author-admin'])
+
     }
 }

@@ -1,0 +1,11 @@
+<div class="card" style="height: 400px;">
+    <img class="card-img-top h-50" [src]="'http://localhost:5000/assets/' + book.image" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{book.title}}</h5>
+      <hr>
+      <div class="d-flex">
+        <a class="btn btn-danger w-20 mx-2 "[routerLink]="['/book-details',book._id]">See More</a>
+      </div>
+
+    </div>
+  </div>

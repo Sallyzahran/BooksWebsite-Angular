@@ -13,6 +13,9 @@ export class UserBooksStatusComponent {
   statusForm!:FormGroup;
   statusBooks:Array<any>=[];
   statusparam!:string
+  ratingBooks:Array<any>=[];
+  avgRateVariable:Array<any>=[];
+
   constructor(private bookService:UserBooksApiService , private router:Router,recive:ActivatedRoute){
     this.statusForm = new FormGroup({
       status: new FormControl()
@@ -23,8 +26,11 @@ export class UserBooksStatusComponent {
         this.booksList=value
 
       for(let i=0; i <this.booksList.length;i++){
-        this.bookService.getStatusOfUserBook(this.booksList[i]._id).subscribe((value:any)=>{
-           this.statusBooks[i]= value.status
+        this.bookService.getStatusOfUserBook(this.booksList[i]._id).subscribe((user:any)=>{
+           this.statusBooks[i]=user.status
+           this.ratingBooks[i]=user.rating
+           this.bookService.getAvgRate(this.booksList[i]._id).subscribe((value:any)=> this.avgRateVariable[i]=value.avgRate);
+
         });
       }
       }

@@ -1,8 +1,10 @@
+import { CategoryService } from './../services/category.service';
 import { BookInterface } from './../interfaces/book-interface';
 import { BookApiService } from './../services/book-api.service';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthorApiService } from '../services/author-api.service';
 
 @Component({
   selector: 'app-add-book',
@@ -19,7 +21,8 @@ export class AddBookComponent {
   errorMessage!:string;
   book:BookInterface={} as BookInterface
 
-constructor(private bookService:BookApiService ,private router:Router){
+constructor(private bookService:BookApiService ,private router:Router,
+  private authorService:AuthorApiService,private categoryService:CategoryService){
 
   this.AddBookForm = new FormGroup({
      title: new FormControl('',Validators.required),
@@ -29,8 +32,8 @@ constructor(private bookService:BookApiService ,private router:Router){
   })
 }
 ngOnInit(): void {
-  this.bookService.getCategories().subscribe((value)=>this.categories=value)
-  this.bookService.getAuthors().subscribe((value)=>this.authors=value)
+  this.categoryService.getCategories().subscribe((value)=>this.categories=value)
+  this.authorService.getAllAuthors().subscribe((value)=>this.authors=value)
 }
 
 onFileSelected(event: any) {

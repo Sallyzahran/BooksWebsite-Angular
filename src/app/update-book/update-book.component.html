@@ -10,7 +10,7 @@
              id="exampleInputname1" aria-describedby="nameHelp" placeholder="Enter title"
             formControlName="title"
             name="title"
-            [ngModel]="book.title"
+            [ngModel]="book?.title"
             [ngClass]=" {'border border-danger ' : updateBookForm.controls['title'].touched && updateBookForm.controls['title'].invalid}"
             >
             <div
@@ -50,7 +50,7 @@
           </select>
 
           <div class="mb-3">
-            <img [src]="'http://localhost:5000/assets/' + book.image" alt="" width="100" height="100" *ngIf="book.image">
+            <img [src]="'http://localhost:5000/assets/' + book?.image" alt="" width="100" height="100" *ngIf="book?.image">
             <input class="form-control" type="file" id="formFile" name="image" formControlName="image" (change)="onFileSelected($event)"> 
           </div>
       

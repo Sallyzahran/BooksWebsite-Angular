@@ -1,48 +1,56 @@
-<div class="container ">
+<div class="d-flex mt-3">
+
+  <app-sidebar></app-sidebar>
+  <div class="w-75 mx-auto">
     <h3 class="text-center text-primary mt-5">All Book</h3>
-    <table class="table table-striped align-middle">
+  <table class="table table-striped align-middle">
 
-        <thead>
-          <tr >
-            <th scope="col">cover</th>
-            <th scope="col">Name</th>
-            <th scope="col">Author</th>
-            <th scope="col">Avg Rate</th>
-            <th>Rating</th>
-            <th scope="col">Sheleve</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let book of booksList; let i =index">
-            <th scope="row"><img [src]="'http://localhost:5000/assets/' + book.image" alt="" width="100" height="100" *ngIf="book?.image"></th>
-           
-            <td>
-              <a [routerLink]="['/book-detalis',book._id]">{{book?.title}}</a>
-             </td>
+      <thead>
+        <tr >
+          <th scope="col">cover</th>
+          <th scope="col">Name</th>
+          <th scope="col">Author</th>
+          <th scope="col">Avg Rate</th>
+          <th>Rating</th>
+          <th scope="col">Sheleve</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let book of booksList; let i =index">
+          <th scope="row"><img [src]="'http://localhost:5000/assets/' + book.image" alt="" width="100" height="100" *ngIf="book?.image"></th>
+         
+          <td>
+            <a [routerLink]="['/book-detalis',book._id]">{{book?.title}}</a>
+           </td>
 
-            <td>{{book?.authorId?.firstName}}</td>
-            <td>{{ this.avgRateVariable[i]}}</td>
-            <td>{{ratingBooks[i]}}</td>
-            <td>
+          <td>{{book?.authorId?.firstName}}</td>
+          <td>{{ this.avgRateVariable[i]}}</td>
+          <td>{{ratingBooks[i]}}</td>
+          <td>
 
-              <form  [formGroup]="statusForm">      
-                <select 
-                class="form-select w-50" 
-                aria-label="Default select example"
-                 #status name="status"
-                formControlName="status"
-                 (change)=" changeStatus(status.value,book._id)">
-                 <option disabled>{{statusBooks[i]}}</option>
-                  <option  value="read">read</option>
-                  <option  value="want to read">want to read</option>
-                  <option  value="reading">reading</option>
+            <form  [formGroup]="statusForm">      
+              <select 
+              class="form-select w-50" 
+              aria-label="Default select example"
+               #status name="status"
+              formControlName="status"
+               (change)=" changeStatus(status.value,book._id)">
+               <option disabled>{{statusBooks[i]}}</option>
+                <option  value="read">read</option>
+                <option  value="want to read">want to read</option>
+                <option  value="reading">reading</option>
+              </select>
+            </form>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+  </div>
+  
 
-                </select>
-              </form>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+<div class="container ">
+    
     
 
 </div>

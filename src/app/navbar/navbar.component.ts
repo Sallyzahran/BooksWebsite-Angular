@@ -25,7 +25,7 @@ export class NavbarComponent {
     return this.localStorage.getItem('token') !== null;
   }
    isAdmin(){
-    console.log( Boolean(this.localStorage.getItem('isAdmin')))
+    // console.log( Boolean(this.localStorage.getItem('isAdmin')))
     return Boolean(this.localStorage.getItem('isAdmin'))
 
    }

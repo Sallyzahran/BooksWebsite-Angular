@@ -19,9 +19,9 @@ loclStorage!:Storage
   } 
  
   login(form: NgForm){  
-    // if(form.invalid){  
-    //   return;  
-    // }  
+    if(form.invalid){  
+      return;  
+    }  
     this.authService.LoginUser(form.value.email, form.value.password);  
   }
   
@@ -31,7 +31,7 @@ loclStorage!:Storage
     if(this.loclStorage.getItem('isAdmin')){
       this.router.navigate(['books'])
      }else
-     this.router.navigate(['/book-list'])
+     this.router.navigate(['book-list'])
  
   }
 

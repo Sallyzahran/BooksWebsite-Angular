@@ -34,6 +34,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { HomeComponent } from './home/home.component';
 import { UserBooksComponent } from './user-books/user-books.component';
+import { BookDivComponent } from './book-div/book-div.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { UserBooksComponent } from './user-books/user-books.component';
     NotFoundComponent,
     SidebarComponent,
     HomeComponent,
-    UserBooksComponent
+    UserBooksComponent,
+    BookDivComponent
   ],
   imports: [
     FormsModule,
