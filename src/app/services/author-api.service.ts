@@ -40,12 +40,8 @@ export class AuthorApiService {
   }
 
   addAuthor(body : any) {
-    if(this.localStorage.getItem("isAdmin"))
     return this.http.post(`http://localhost:5000/author/`, body,{headers:this.headers});
-    else{
-      this.router.navigate(['**']);
-      return this.authUpdated
-    }
+    
   }
 
   updateAuthor(id: number, body : any) {

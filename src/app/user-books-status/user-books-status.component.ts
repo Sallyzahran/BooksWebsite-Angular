@@ -18,13 +18,12 @@ export class UserBooksStatusComponent {
 
   constructor(private bookService:UserBooksApiService , private router:Router,recive:ActivatedRoute){
     this.statusForm = new FormGroup({
-      status: new FormControl()
+      status: new FormControl('')
   });
   this.statusparam=recive.snapshot.params['status'];
     this.bookService.getBookByStatus(this.statusparam).subscribe(
       (value)=>{
         this.booksList=value
-
       for(let i=0; i <this.booksList.length;i++){
         this.bookService.getStatusOfUserBook(this.booksList[i]._id).subscribe((user:any)=>{
            this.statusBooks[i]=user.status

@@ -27,6 +27,7 @@ async  ngOnInit() {
     this.bookService.allUserBook().subscribe(
     (value)=>{
       this.booksList=value
+      console.log(this.booksList)
     for(let i=0; i <this.booksList.length;i++){
       this.bookService.getStatusOfUserBook(this.booksList[i]._id).subscribe((user:any)=>{
         this.statusBooks[i]= user.status

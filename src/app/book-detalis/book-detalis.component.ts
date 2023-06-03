@@ -18,28 +18,37 @@ book!:BookInterface;
 avgRateVariable!:number;
 rating: number | undefined;
   review: string | undefined;
-  status!:string
+  status1!:any
 
 constructor(private bookservice:BookApiService,private recive:ActivatedRoute,private router: Router,private bookService:UserBooksApiService){
-console.log(recive.snapshot.params['id'])
-  this.bookservice.getBook(recive.snapshot.params['id']).subscribe((value)=>this.book=value)
-  this.avgRate()
+  this.statusForm = new FormGroup({
+    status: new FormControl('')
+});
+    
+  this.bookservice.getBook(recive.snapshot.params['id']).subscribe((book)=>{
+    this.bookService.getStatusOfUserBook(book._id).subscribe((user:any)=>{
+      this.status1= user.status
+  
+      this.bookService.getAvgRate(book._id).subscribe((value:any)=> this.avgRateVariable=value.avgRate);
+    });
+  })
+  // this.avgRate()
   
 }
-avgRate(){
-  if(this.book?.reviews?.length){
-    let count:number=0;
-    let sum:number=0
-    for(let i =0 ;i<this.book?.reviews?.length;i++){
-      if(this.book?.reviews[i].rating){
-        sum+=this.book.reviews[i].rating;
-        count++;
-      }
-    }
-    this.avgRateVariable=sum/count;
+// avgRate(){
+//   if(this.book?.reviews?.length){
+//     let count:number=0;
+//     let sum:number=0
+//     for(let i =0 ;i<this.book?.reviews?.length;i++){
+//       if(this.book?.reviews[i].rating){
+//         sum+=this.book.reviews[i].rating;
+//         count++;
+//       }
+//     }
+//     this.avgRateVariable=sum/count;
 
-  }
-}
+//   }
+// }
 
 
 ngOnInit(): void {
@@ -53,11 +62,7 @@ ngOnInit(): void {
     }
   });
 
-  this.bookService.getStatusOfUserBook(this.book._id).subscribe((user:any)=>{
-    this.status= user.status
-
-    this.bookService.getAvgRate(this.book._id).subscribe((value:any)=> this.avgRateVariable=value.avgRate);
-  });
+ 
 }
 
 

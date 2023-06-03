@@ -2,26 +2,31 @@
 
 <div class="container ">
 
-  <div class="row">
+  <div class="row mt-5">
   <div class="card mb-3" style="max-width: 1000px; max-height: 600px; border: none;">
       <div class="row g-0">
       <div class="col-md-3">
-          <img [src]='"http://localhost:5000/assets/"+book.image' class="img-fluid rounded" style="height: 200px; width: 300px; ">
+          <img [src]='"http://localhost:5000/assets/"+book?.image' class="img-fluid rounded" style="height: 200px; width: 300px; ">
       </div>
-      <div class="col-md-9">
+      <div class="col-md-6">
           <div class="card-body">
               <br>
           <h3 class="card-title">{{book.title}}</h3>
+          <p> <a [routerLink]="['/author-details',book.authorId?._id]">By {{book.authorId?.firstName}}</a></p>
+          <p> <a [routerLink]="['/app-category-books',book.categoryId?._id]"> {{book.categoryId?.name}}</a></p>
+
           <i class="fa fa-edit mx-3" (click)="addreview(book?._id)"></i>
           </div>
-          <form  [formGroup]="statusForm">      
+      </div>
+      <div class=" col-md-3 mt-5">
+        <form  [formGroup]="statusForm">      
           <select 
-          class="form-select w-50" 
+          class="form-select w-100" 
           aria-label="Default select example"
            #status name="status"
           formControlName="status"
            (change)=" changeStatus(status.value,book._id)">
-           <option disabled>{{status}}</option>
+           <option disabled>{{status1}}</option>
             <option  value="read">read</option>
             <option  value="want to read">want to read</option>
             <option  value="reading">reading</option>
@@ -46,7 +51,7 @@
 
               </div>
           </div>
-          <hr style="visibility: hidden;">
+          <hr >
           </div>
           </div>
       </div>
