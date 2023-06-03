@@ -1,5 +1,59 @@
 
 
+<div class="container ">
+
+  <div class="row">
+  <div class="card mb-3" style="max-width: 1000px; max-height: 600px; border: none;">
+      <div class="row g-0">
+      <div class="col-md-3">
+          <img [src]='"http://localhost:5000/assets/"+book.image' class="img-fluid rounded" style="height: 200px; width: 300px; ">
+      </div>
+      <div class="col-md-9">
+          <div class="card-body">
+              <br>
+          <h3 class="card-title">{{book.title}}</h3>
+          <i class="fa fa-edit mx-3" (click)="addreview(book?._id)"></i>
+          </div>
+          <form  [formGroup]="statusForm">      
+          <select 
+          class="form-select w-50" 
+          aria-label="Default select example"
+           #status name="status"
+          formControlName="status"
+           (change)=" changeStatus(status.value,book._id)">
+           <option disabled>{{status}}</option>
+            <option  value="read">read</option>
+            <option  value="want to read">want to read</option>
+            <option  value="reading">reading</option>
+          </select>
+        </form>
+      </div>
+      </div>
+  </div>
+  </div>
+  <!-- <div class="row px-3 py-3" style="border: 1px solid black;"> -->
+  <div class="row px-3 py-3">
+      <h3>reviews</h3>
+      <div class="card mb-3  py-3" style="max-width: 100%;">
+        <div *ngIf="book?.reviews?.length">
+
+          <div class="row g-0" *ngFor="let review of book.reviews">
+          <div class="col-md-8">
+              <div class="card-body">
+              <h5 class="card-title"> {{review.review}}</h5>
+              <br>
+              <p> {{ review.rating | starRating :5 }}</p>
+
+              </div>
+          </div>
+          <hr style="visibility: hidden;">
+          </div>
+          </div>
+      </div>
+  </div>
+  </div>
+<!-- <div class="container">
+
         <div class="row">
           <div class="col-lg-9 mx-auto">
             <div class="card">
@@ -24,6 +78,8 @@
                     </li>
                   </ul>
                 </div>
+</div> -->
+
 
 
 

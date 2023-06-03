@@ -36,6 +36,6 @@ export class UserBooksApiService {
   }
 
   getAvgRate(bookId:string){
-    return this.http.get(`http://localhost:5000/review/${bookId}/avgRate`)
+    return this.http.get(`http://localhost:5000/review/${bookId}/avgRate`,{headers:this.headers})
   }
 }
