@@ -39,7 +39,7 @@ loclStorage!:Storage
      if(this.loclStorage.getItem('isAdmin')){
       this.router.navigate(['books'])
      }else if(this.loclStorage.getItem('token')){
-      this.router.navigate(['book-list'])
+      this.router.navigate([''])
 
      }
   })  
