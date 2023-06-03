@@ -21,7 +21,7 @@
 <div class="row px-3 py-3">
     <h3>Author's Books</h3>
     <div class="card mb-3  py-3" style="max-width: 100%;">
-        <div class="row g-0" *ngFor="let book of books">
+        <div class="row g-0" *ngFor="let book of books; let i =index">
         <div class="col-md-2">
             <img width="100%" height="100%" [src]='"http://localhost:5000/assets/"+book.image' class="rounded" alt="...">
         </div>
@@ -30,28 +30,28 @@
             <h5 class="card-title"> {{book.title}}</h5>
             <br>
             <p>
-            <span class="checked"> <fa-icon [icon]="faStar"></fa-icon> </span>
-            <span class="checked"> <fa-icon [icon]="faStar"></fa-icon> </span>
-            <span class="checked"> <fa-icon [icon]="faStar"></fa-icon> </span>
-            <span> <fa-icon [icon]="faStar"></fa-icon> </span>
-            <span> <fa-icon [icon]="faStar"></fa-icon> </span>&nbsp;&nbsp;&nbsp;&nbsp;
-            <span>3.2 - 356 Ratings</span>
+           &nbsp;&nbsp;&nbsp;&nbsp;
+            {{ this.avgRateVariable[i]|starRating:5}}
+
+            <span>{{avgRateVariable[i]}} </span>
         </p>
             </div>
         </div>
         <div class="col-md-2 mt-5">
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                Please Choose
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="#">Currently Read</a></li>
-                <li><a class="dropdown-item" href="#">Want to Read</a></li>
-                <li><a class="dropdown-item" href="#">Read</a></li>
-                </ul>
-            </div>
+            <form  [formGroup]="statusForm">      
+                <select 
+                class="form-select w-50" 
+                aria-label="Default select example"
+                 #status name="status"
+                formControlName="status">
+                 <option disabled>{{statusBooks[i]}}</option>
+                  <option  value="read">read</option>
+                  <option  value="want to read">want to read</option>
+                  <option  value="reading">reading</option>
+                </select>
+              </form>
         </div>
-        <hr style="visibility: hidden;">
+        <hr>
         </div>
     </div>
 </div>
