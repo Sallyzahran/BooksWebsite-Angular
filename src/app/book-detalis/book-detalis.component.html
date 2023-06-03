@@ -1,101 +1,73 @@
 
 
-<div class="container ">
 
-  <div class="row mt-5">
-  <div class="card mb-3" style="max-width: 1000px; max-height: 600px; border: none;">
-      <div class="row g-0">
-      <div class="col-md-3">
-          <img [src]='"http://localhost:5000/assets/"+book?.image' class="img-fluid rounded" style="height: 200px; width: 300px; ">
+
+  <div class="author" style="margin-top: 50px;">
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <img [src]='"http://localhost:5000/assets/"+book?.image' class="img-fluid rounded" style="height: 640px; width: 500px; " >
       </div>
       <div class="col-md-6">
-          <div class="card-body">
-              <br>
-          <h3 class="card-title">{{book.title}}</h3>
-          <p> <a [routerLink]="['/author-details',book.authorId?._id]">By {{book.authorId?.firstName}}</a></p>
-          <p> <a [routerLink]="['/app-category-books',book.categoryId?._id]"> {{book.categoryId?.name}}</a></p>
+        <h3 class="card-title">{{book.title}}</h3>
+        <p> <a  style="text-decoration: none; color: black;" [routerLink]="['/author-details',book.authorId?._id]">By {{book.authorId?.firstName}}</a></p>
+        <p> <a   style="text-decoration: none; color: black;" [routerLink]="['/app-category-books',book.categoryId?._id]"> {{book.categoryId?.name}}</a></p>
 
-          <i class="fa fa-edit mx-3" (click)="addreview(book?._id)"></i>
-          </div>
-      </div>
-      <div class=" col-md-3 mt-5">
-        <form  [formGroup]="statusForm">      
-          <select 
-          class="form-select w-100" 
-          aria-label="Default select example"
-           #status name="status"
-          formControlName="status"
-           (change)=" changeStatus(status.value,book._id)">
-           <option disabled>{{status1}}</option>
-            <option  value="read">read</option>
-            <option  value="want to read">want to read</option>
-            <option  value="reading">reading</option>
-          </select>
-        </form>
-      </div>
-      </div>
-  </div>
-  </div>
-  <!-- <div class="row px-3 py-3" style="border: 1px solid black;"> -->
-  <div class="row px-3 py-3">
-      <h3>reviews</h3>
-      <div class="card mb-3  py-3" style="max-width: 100%;">
-        <div *ngIf="book?.reviews?.length">
 
-          <div class="row g-0" *ngFor="let review of book.reviews">
-          <div class="col-md-8">
-              <div class="card-body">
-              <h5 class="card-title"> {{review.review}}</h5>
-              <br>
-              <p> {{ review.rating | starRating :5 }}</p>
+        <div class=" col-md-3 mt-5">
+          <form  [formGroup]="statusForm">      
+            <select 
+            class="form-select w-100" 
+            aria-label="Default select example"
+             #status name="status"
+            formControlName="status"
+             (change)=" changeStatus(status.value,book._id)">
+             <option disabled>{{status1}}</option>
+              <option  value="read">read</option>
+              <option  value="want to read">want to read</option>
+              <option  value="reading">reading</option>
+            </select>
+          </form>
 
-              </div>
-          </div>
-          <hr >
-          </div>
-          </div>
-      </div>
-  </div>
-  </div>
-<!-- <div class="container">
+          <br> <br>
+          <i class="fa fa-edit mx-3" (click)="addreview(book?._id)">Add review</i>
 
-        <div class="row">
-          <div class="col-lg-9 mx-auto">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Name: {{ book?.title }}</h5>
-                <hr>
-                <h5 class="card-title">Author: {{ book?.authorId?.firstName }} </h5>
-                <img [src]="'http://localhost:5000/assets/' + book.image" alt="" width="200" height="200" *ngIf="book?.image">
-                <i class="fa fa-edit mx-3" (click)="addreview(book?._id)"></i>
-                <hr>
-                <div *ngIf="book?.reviews?.length">
-                  <h5 class="card-title">Reviews:</h5>
-        
-                  <ul *ngFor="let review of book.reviews">
-                    <li>
-                      <p> {{ review.rating | starRating :5 }}</p>
+          <div class="row px-3 py-2" style="width: 300px">
+            <br> <br>
 
-                    </li>
-                    <li>
-                      <p>review: {{ review.review }}</p>
+            <div class="card mb-3  py-3" style="max-width: 100%;">
+              <div *ngIf="book?.reviews?.length">
+      
+                <div class="row g-0" *ngFor="let review of book.reviews">
+                  <h3>reviews</h3>
 
-                    </li>
-                  </ul>
+                <div class="col-md-8">
+                    <div class="card-body">
+                    <h5 class="card-title"> {{review.review}}</h5>
+                    <br>
+                    <p> {{ review.rating | starRating :5 }}</p>
+      
+                    </div>
                 </div>
-</div> -->
+                <hr >
+                </div>
+                </div>
+            </div>
+        </div>
+        </div>
+      </div>
+
+      
+    </div>
+  </div>
 
 
 
 
 
-
-
-
-
-
-
-
+  </div>
 
 
 
