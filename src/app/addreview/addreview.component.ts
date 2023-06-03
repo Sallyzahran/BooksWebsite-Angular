@@ -42,33 +42,6 @@ export class AddreviewComponent {
 
 
 
-  // submitReview() {
-  //   const bookId = this.route.snapshot.params['id'];
-  //   const existingRating = this.book?.reviews?.find(r => r.review !== undefined);
-
-  //   if (existingRating) {
-  //     const reviewData = {
-  //       review: existingRating.review,
-  //       rating: this.rating
-  //     };
-  //     this.bookService.addReview(bookId, reviewData)
-  //       .subscribe(() => {
-  //         this.router.navigate(['/book-details', bookId], { state: { rating: this.rating, review: existingRating.review,} });
-  //       });
-  //   } else {
-  //     const reviewData = {
-  //       rating: this.rating,
-  //       review: this.review
-  //     };
-  //     this.bookService.addReview(bookId, reviewData)
-  //       .subscribe(() => {
-  //         this.router.navigate(['/book-details', bookId], { state: { rating: this.rating, review: this.review } });
-  //       });
-  //   }
-  // }
-
-
-
 
 
 
