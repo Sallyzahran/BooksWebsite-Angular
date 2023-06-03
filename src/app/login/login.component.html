@@ -1,4 +1,6 @@
-<form  method="POST"  #LoginForm="ngForm"  (ngSubmit)="whenSubmit(LoginForm)">
+<div class="container">
+
+  <form   #LoginForm="ngForm"  (ngSubmit)="whenSubmit(LoginForm)">
     <h1>Login</h1>
     <!-- Email input -->
     <div class="form-outline mb-4">
@@ -43,28 +45,14 @@
    
   
     <!-- Submit button -->
-    <button (click)="login(LoginForm)" type="submit" class="btn btn-primary btn-block mb-4"  [disabled] = 'LoginForm.invalid' >Sign in</button>
+    <button type="submit" routerLink="" class="btn btn-primary btn-block mb-4"  [disabled] = 'LoginForm.invalid' >Sign in</button>
   
     <!-- Register buttons -->
     <div class="text-center">
-      <p>Not a member? <a href="register">Register</a></p>
-      <p>or sign up with:</p>
-      <button type="button" class="btn btn-secondary btn-floating mx-1">
-        <i class="fab fa-facebook-f"></i>
-      </button>
-  
-      <button type="button" class="btn btn-secondary btn-floating mx-1">
-        <i class="fab fa-google"></i>
-      </button>
-  
-      <button type="button" class="btn btn-secondary btn-floating mx-1">
-        <i class="fab fa-twitter"></i>
-      </button>
-  
-      <button type="button" class="btn btn-secondary btn-floating mx-1"  >
-        <i class="fab fa-github"></i>
-      </button>
+      <p>Not a member? <a routerLink="/register">Register</a></p>
     </div>
   </form>
  
+</div>
+
 

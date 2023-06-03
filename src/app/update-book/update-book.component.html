@@ -31,7 +31,7 @@
           <label class="my-3" for="category ">Category</label>
 
           <select class="form-select" aria-label="Default select example" name="categoryId" formControlName="categoryId"
-          [(ngModel)]="selectedCategoryId"
+          [(ngModel)]="selectedCategoryId._id"
           >
             <ng-container *ngFor="let category of categories">
               <option [value]="category._id">{{category.name}}</option>
@@ -42,7 +42,7 @@
           
           <label class="my-3" for="author ">Author</label>
           <select class="form-select" aria-label="Default select example" name="authorId" formControlName="authorId"
-          [(ngModel)]="selectedAuthorId"
+          [(ngModel)]="selectedAuthorId._id"
           >
             <ng-container *ngFor="let author of authors">
               <option [value]="author._id">{{author.firstName}}</option>

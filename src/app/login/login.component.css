@@ -4,9 +4,11 @@ form{
     display: flex;
     flex-direction: column;
     width: 500px;
-    height: 500px;
     /* justify-content: center; */
-     margin-left: 500px;
+     margin: auto;
+     border: 1px solid black;
+     padding: 30px;
+     border-radius: 3%;
     margin-top: 100px;
    
   
