@@ -30,7 +30,7 @@
             <h5 class="card-title"> {{book.title}}</h5>
             <br>
             <p>
-           &nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;
             {{ this.avgRateVariable[i]|starRating:5}}
 
             <span>{{avgRateVariable[i]}} </span>
@@ -41,6 +41,7 @@
             <form  [formGroup]="statusForm">      
                 <select 
                 class="form-select w-50" 
+                (change)=" changeStatus(status.value,book._id)"
                 aria-label="Default select example"
                  #status name="status"
                 formControlName="status">

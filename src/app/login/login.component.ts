@@ -18,20 +18,23 @@ loclStorage!:Storage
     this.loclStorage=window.localStorage
   } 
  
-  login(form: NgForm){  
-    if(form.invalid){  
-      return;  
-    }  
-    this.authService.LoginUser(form.value.email, form.value.password);  
-  }
+  // login(form: NgForm){  
+     
+  // }
   
 
  
   whenSubmit(form :NgForm){
+    if(form.invalid){  
+      return;  
+    }  
+    this.authService.LoginUser(form.value.email, form.value.password);
     if(this.loclStorage.getItem('isAdmin')){
       this.router.navigate(['books'])
-     }else
+     }else if(this.loclStorage.getItem('token'))
      this.router.navigate(['book-list'])
+     else
+     this.router.navigate(['/login']);
  
   }
 

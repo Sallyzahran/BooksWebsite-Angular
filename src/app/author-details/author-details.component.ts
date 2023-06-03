@@ -50,5 +50,11 @@ console.log(this.books.length)
    
   }
 
+  changeStatus(status:string,bookId:string){
+    // console.log(status,bookId)
+    this.bookService.AddStatus(status,bookId).subscribe((value)=>console.log(value))
+   
+  }
+
 
 }

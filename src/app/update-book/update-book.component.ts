@@ -20,8 +20,8 @@ export class UpdateBookComponent {
   errorMessage!:string;
   id!:string
   book!:BookInterface;
-  selectedCategoryId!:string
-  selectedAuthorId!:string
+  selectedCategoryId!:any
+  selectedAuthorId!:any
   title!:string
 
   constructor(private bookService:BookApiService,private recive:ActivatedRoute , private router:Router,
@@ -38,20 +38,23 @@ export class UpdateBookComponent {
       image: new FormControl ('')
       
     })
-  }
 
-   ngOnInit() {
     this.bookService.getBook(this.id).subscribe((value:BookInterface)=>this.book=value)
     this.categoryService.getCategories().subscribe((value)=>{
       this.categories=value
-   this.selectedCategoryId= this.categories?.find((category:any) => category._id == this.book?.categoryId?._id)?._id;
+      console.log(this.categories)
+   this.selectedCategoryId= this.categories?.find((category:any) => category?._id == this.book?.categoryId?._id);
     }
     )
-   this.authorService.getAllAuthors().subscribe((value)=>{
+    this.authorService.getAllAuthors().subscribe((value)=>{
       this.authors=value
-      this.selectedAuthorId= this.authors?.find((author:any) => author._id == this.book.authorId?._id)._id;
+      this.selectedAuthorId= this.authors?.find((author:any) => author?._id == this.book.authorId?._id);
     })
     this.title=this.book?.title
+  }
+
+   async ngOnInit() {
+  
 
   }
 
@@ -64,8 +67,8 @@ updateBook(){
   console.log(this.updateBookForm.controls)
   const formData = new FormData();
   formData.append('title', this.updateBookForm.controls['title'].value);
-  formData.append('categoryId', this.selectedCategoryId);
-  formData.append('authorId', this.selectedAuthorId);
+  formData.append('categoryId', this.updateBookForm.controls['categoryId']?.value);
+  formData.append('authorId', this.updateBookForm.controls['authorId']?.value);
   if (this.selectedFile) {
     formData.append('image', this.selectedFile);
   }
