@@ -18,9 +18,9 @@ loclStorage!:Storage
     this.loclStorage=window.localStorage
   } 
  
-  // login(form: NgForm){  
+  login(form: NgForm){  
      
-  // }
+  }
   
 
  
@@ -28,13 +28,22 @@ loclStorage!:Storage
     if(form.invalid){  
       return;  
     }  
-    this.authService.LoginUser(form.value.email, form.value.password);
-    if(this.loclStorage.getItem('isAdmin')){
+    this.authService.LoginUser(form.value.email, form.value.password).subscribe((response: any) =>{  
+    
+     localStorage.setItem('token' , response.body.token)
+     localStorage.setItem('userId' , response.body.userId)
+     if(response.body.admin){
+           localStorage.setItem('isAdmin' , response.body.admin)
+     }
+     
+     if(this.loclStorage.getItem('isAdmin')){
       this.router.navigate(['books'])
-     }else if(this.loclStorage.getItem('token'))
-     this.router.navigate(['book-list'])
-     else
-     this.router.navigate(['/login']);
+     }else if(this.loclStorage.getItem('token')){
+      this.router.navigate(['book-list'])
+
+     }
+  })  
+    
  
   }
 
