@@ -36,23 +36,15 @@ export class CategoryService {
   }
 
   deleteCategory(id: string){
-    if(this.localStorage.getItem("isAdmin"))
 
     return this.http.delete(`http://localhost:5000/category/${id}`,{headers:this.headers});
-    else{
-      this.router.navigate(['**']);
-      return this.authUpdated
-    }
+  
   }
 
   addCategory(category: any) {
-    if(this.localStorage.getItem("isAdmin"))
 
     return this.http.post(`http://localhost:5000/category/`, category,{headers:this.headers});
-    else{
-      this.router.navigate(['**']);
-      return this.authUpdated
-    }
+  
   }
 
   getCategiryId(id:string): Observable<any> {
@@ -62,13 +54,9 @@ export class CategoryService {
   }
 
   UpdateCategory(id: string, category:any) {
-    if(this.localStorage.getItem("isAdmin"))
 
     return this.http.put(`http://localhost:5000/category/${id}`, category,{headers:this.headers});
-    else{
-      this.router.navigate(['**']);
-      return this.authUpdated
-    }
+  
   }
 
 
