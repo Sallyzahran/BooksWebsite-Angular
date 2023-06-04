@@ -1,3 +1,4 @@
+import Swal from "sweetalert2";
 import { Router } from '@angular/router';
 import { Component ,OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
@@ -42,6 +43,14 @@ loclStorage!:Storage
       this.router.navigate([''])
 
      }
+  },(error: any) => {
+    console.error(error);
+    Swal.fire({
+      icon: 'error',
+      title: 'Error',
+      text: 'An error occurred while logging in.',
+      confirmButtonText: 'OK'
+    });
   })  
     
  
