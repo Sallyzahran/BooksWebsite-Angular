@@ -45,21 +45,13 @@ export class AuthorApiService {
   }
 
   updateAuthor(id: number, body : any) {
-    if(this.localStorage.getItem("isAdmin"))
     return this.http.put(`http://localhost:5000/author/${id}`, body,{headers:this.headers});
-    else{
-      this.router.navigate(['**']);
-      return this.authUpdated
-    }
+  
   }
 
   deleteAuthor(id : number) {
-    if(this.localStorage.getItem("isAdmin"))
     return this.http.delete(`http://localhost:5000/author/${id}`,{headers:this.headers});
-    else{
-      this.router.navigate(['**']);
-      return this.authUpdated
-    }
+  
   }
 
   getBook(id : number) {
